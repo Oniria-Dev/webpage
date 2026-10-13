@@ -29,6 +29,12 @@ function Footer() {
               {t("about")}
             </Link>
             <a
+              href="mailto:info@oniriasolutions.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              info@oniriasolutions.com
+            </a>
+            <a
               href="https://www.instagram.com/oniriasolutions"
               target="_blank"
               rel="noopener noreferrer"
