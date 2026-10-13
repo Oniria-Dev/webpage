@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link
               key={link.key}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground active:text-foreground transition-colors"
             >
               {t(link.key)}
             </Link>
@@ -48,7 +48,7 @@ export default function Navbar() {
             <SheetTrigger asChild>
               <button
                 aria-label={t("menu")}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                className="p-3 text-muted-foreground hover:text-foreground active:text-foreground transition-colors"
               >
                 <Menu className="h-5 w-5" />
               </button>
@@ -56,14 +56,14 @@ export default function Navbar() {
             <SheetContent className="p-6" side="right">
               <SheetTitle className="sr-only">{t("menu")}</SheetTitle>
 
-              <div className="flex flex-col gap-6 mt-10">
+              <div className="flex flex-col gap-2 mt-10">
                 <LocaleSwitcher />
                 {links.map((link) => (
                   <Link
                     key={link.key}
                     href={link.href}
                     onClick={() => setSheetOpen(false)}
-                    className="text-lg text-foreground"
+                    className="py-2 text-lg text-foreground active:text-muted-foreground"
                   >
                     {t(link.key)}
                   </Link>

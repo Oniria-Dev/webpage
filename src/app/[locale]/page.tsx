@@ -101,7 +101,7 @@ export default function LandingPage() {
       {/* Origin */}
       <Section index="04" label={t("origin.label")} title={t.rich("origin.title", em)} className="bg-muted">
         <p className="max-w-[60ch] text-lg text-muted-foreground">{t("origin.body")}</p>
-        <Link href="/about" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium">
+        <Link href="/about" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70 active:opacity-70">
           {t("origin.link")}
           <ArrowRight className="h-4 w-4" />
         </Link>

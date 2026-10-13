@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
   const t = useTranslations("Products");
   const name = t(`items.${product.slug}.name`);
   return (
-    <Link href={`/products/${product.slug}`} className="group block">
+    <Link href={`/products/${product.slug}`} className="group block transition-opacity active:opacity-70">
       <ProductVisual product={product} alt={name} />
       <p className="mono-label mt-5 text-muted-foreground">{t(`items.${product.slug}.category`)}</p>
       <h3 className="mt-1 text-2xl">{name}</h3>
