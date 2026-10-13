@@ -1,14 +1,15 @@
-﻿import HeroSection from "./hero-section";
-import Schedule from "./schedule";
-import WhyOniria from "./why-oniria";
-import HowItWorks from "./how-it-works";
-import QualifySection from "./qualify-section";
-import { Zap, Workflow, Bot, Globe } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { FeatureCards } from "./feature-cards";
+import { Link } from "../../i18n/navigation";
+import { Button } from "../../components/ui/button";
+import { Isotipo } from "../../components/brand/logo";
+import { ProductCard } from "../../components/product-card";
+import { Section, em } from "../../components/section";
+import { products } from "../../lib/products";
 
+type Item = { title: string; description: string; example?: string };
 
 export async function generateMetadata({
   params
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'LandingPage.Metadata' });
+  const t = await getTranslations({ locale, namespace: 'Home.Metadata' });
 
   return {
     title: t('title'),
@@ -27,87 +28,84 @@ export async function generateMetadata({
 
 
 export default function LandingPage() {
-  const t = useTranslations("LandingPage");
-
-  const features = [
-    {
-      icon: <Workflow className="w-5 h-5" />,
-      title: t("card1.title"),
-      description: t("card1.description"),
-      color: "from-brand-800 to-sky-600",
-      glowColor: "#7c3aed",
-      href: "/solutions",
-    },
-    {
-      icon: <Bot className="w-5 h-5" />,
-      title: t("card2.title"),
-      description: t("card2.description"),
-      color: "from-blue-600 to-indigo-600",
-      glowColor: "#3b82f6",
-      href: "/solutions",
-    },
-    {
-      icon: <Zap className="w-5 h-5" />,
-      title: t("card3.title"),
-      description: t("card3.description"),
-      color: "from-cyan-500 to-blue-500",
-      glowColor: "#06b6d4",
-      href: "/solutions",
-    },
-    {
-      icon: <Globe className="w-5 h-5" />,
-      title: t("card4.title"),
-      description: t("card4.description"),
-      color: "from-emerald-500 to-teal-500",
-      glowColor: "#10b981",
-      href: "/solutions",
-    },
-  ];
+  const t = useTranslations("Home");
+  const nav = useTranslations("Navigation");
 
   return (
-    <main className="min-h-screen bg-[#0a0a0f] text-white selection:bg-brand-500/30 selection:text-blue-200">
-      {/* Hero Section with animated workflow */}
-      <HeroSection />
-
-      {/* Why Oniria — differentiators */}
-      <WhyOniria />
-
-      {/* Features Section */}
-      <section className="relative w-full py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0a0f]" />
-        <div className="absolute top-0 right-1/4 w-125 h-125 bg-brand-500/5 rounded-full blur-[75px] md:blur-[150px]" />
-
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-500/20 bg-brand-500/5 mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-800"></span>
-              </span>
-              <span className="text-xs font-medium text-brand-300 uppercase tracking-wider">
-                {t("features.badge")}
-              </span>
+    <main>
+      {/* Hero: always the Negro field, in both themes */}
+      <section className="dark bg-background text-foreground">
+        <div className="wrap grid items-center gap-12 pt-20 pb-16 md:grid-cols-[1.5fr_1fr] md:pt-32 md:pb-24">
+          <div>
+            <p className="mono-label text-muted-foreground">{t("hero.label")}</p>
+            <h1 className="mt-6 text-[clamp(2.75rem,8vw,6rem)]">{t.rich("hero.title", em)}</h1>
+            <p className="mt-8 max-w-[52ch] text-lg text-muted-foreground">{t("hero.lead")}</p>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Button asChild className="h-11 rounded-full px-5 text-sm">
+                <Link href="/products">
+                  {t("hero.products")}
+                  <ArrowRight />
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" className="h-11 rounded-full px-5 text-sm">
+                <Link href="/about">{t("hero.about")}</Link>
+              </Button>
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-5 text-white">
-              {t("title")}
-            </h2>
-            <p className="text-base md:text-lg text-[#94a3b8]">
-              {t("features.subtitle")}
-            </p>
           </div>
-
-          <FeatureCards features={features} />
+          <Isotipo aria-hidden className="hidden w-full max-w-[340px] justify-self-end md:block" />
+        </div>
+        {/* The 0° line, the brand's recurring graphic */}
+        <div className="wrap flex items-center gap-4 pb-8">
+          <span className="mono-label">0°</span>
+          <span className="h-0.5 flex-1 bg-foreground" />
+          <span className="mono-label hidden text-muted-foreground sm:inline">{nav("signature")}</span>
         </div>
       </section>
 
-      {/* How It Works */}
-      <QualifySection />
-      <HowItWorks />
+      {/* What we do */}
+      <Section id="que-hacemos" index="01" label={t("what.label")} title={t.rich("what.title", em)} intro={t("what.intro")} className="border-t-0">
+        <div className="grid gap-10 md:grid-cols-3">
+          {(t.raw("what.items") as Item[]).map((item) => (
+            <div key={item.title} className="border-t border-foreground pt-5">
+              <h3 className="text-xl">{item.title}</h3>
+              <p className="mt-3 text-muted-foreground">{item.description}</p>
+              <p className="mono-label mt-6 text-muted-foreground">{t("what.example")}</p>
+              <p className="mt-1 font-medium">{item.example}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-      {/* CTA / Schedule */}
-      <div className="pb-20">
-        <Schedule />
-      </div>
+      {/* Products */}
+      <Section index="02" label={t("products.label")} title={t.rich("products.title", em)} intro={t("products.intro")}>
+        <div className="grid gap-12 md:grid-cols-2">
+          {products.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+      </Section>
+
+      {/* How we work */}
+      <Section index="03" label={t("how.label")} title={t.rich("how.title", em)} intro={t("how.intro")}>
+        <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {(t.raw("how.steps") as Item[]).map((step, i) => (
+            <li key={step.title} className="border-t border-border pt-5">
+              <p className="mono-label text-muted-foreground">0{i + 1}</p>
+              <h3 className="mt-2 text-xl">{step.title}</h3>
+              <p className="mt-3 text-muted-foreground">{step.description}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* Origin */}
+      <Section index="04" label={t("origin.label")} title={t.rich("origin.title", em)} className="bg-muted">
+        <p className="max-w-[60ch] text-lg text-muted-foreground">{t("origin.body")}</p>
+        <Link href="/about" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium">
+          {t("origin.link")}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </Section>
     </main>
   );
 }

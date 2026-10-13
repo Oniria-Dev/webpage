@@ -3,14 +3,11 @@ import { MetadataRoute } from "next";
 const BASE_URL = "https://oniriasolutions.com";
 const LOCALES = ["en", "es"];
 const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
-  { path: "",                   priority: 1.0, changeFrequency: "weekly" },
-  { path: "/solutions",         priority: 0.9, changeFrequency: "monthly" },
-  { path: "/contact",           priority: 0.9, changeFrequency: "monthly" },
-  { path: "/education",         priority: 0.6, changeFrequency: "monthly" },
-  { path: "/process/analyze",   priority: 0.8, changeFrequency: "monthly" },
-  { path: "/process/connect",   priority: 0.8, changeFrequency: "monthly" },
-  { path: "/process/implement", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/process/scale",     priority: 0.8, changeFrequency: "monthly" },
+  { path: "",                     priority: 1.0, changeFrequency: "weekly" },
+  { path: "/products",             priority: 0.9, changeFrequency: "monthly" },
+  { path: "/products/argos-suite", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/oniric",      priority: 0.8, changeFrequency: "monthly" },
+  { path: "/about",                priority: 0.7, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

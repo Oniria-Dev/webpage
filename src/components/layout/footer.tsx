@@ -1,66 +1,54 @@
-"use client";
-import React from "react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { Instagram } from "lucide-react";
+import { Link } from "../../i18n/navigation";
+import { Isotipo } from "../brand/logo";
 
 function Footer() {
   const t = useTranslations("Navigation");
   return (
-    <footer className="relative bg-[#0a0a0f] border-t border-white/4">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Logo & Tagline */}
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-2">
-              <img src="/logo.svg" width={24} height={24} className="h-6 w-6" alt="ONIRIA" />
-              <span className="text-sm font-bold text-white/80">
-                ONIRIA
-                <span className="text-brand-500 font-normal ml-0.5 text-xs">
-                  solutions
-                </span>
-              </span>
-            </div>
-            <p className="text-xs text-[#94a3b8]/60">{t("Footer")}</p>
-          </div>
-
-          {/* Links */}
-          <div className="flex gap-6 text-sm">
-            <Link
-              href="/solutions"
-              className="text-[#94a3b8]/60 hover:text-white/80 transition-colors duration-300"
-            >
-              {t("solutions")}
-            </Link>
-            <Link
-              href="/process/analyze"
-              className="text-[#94a3b8]/60 hover:text-white/80 transition-colors duration-300"
-            >
-              {t("process")}
-            </Link>
-            <Link
-              href="/contact"
-              className="text-[#94a3b8]/60 hover:text-white/80 transition-colors duration-300"
-            >
-              {t("contact")}
-            </Link>
-          </div>
-
-          {/* Social + Copyright */}
+    // Always the Negro field, in both themes.
+    <footer className="dark bg-background text-foreground">
+      <div className="wrap py-14">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="flex items-center gap-4">
+            <Isotipo aria-hidden className="h-12 w-12" />
+            <div>
+              <p className="text-lg font-medium tracking-tight">{t("tagline")}</p>
+              <p className="mono-label text-muted-foreground">{t("signature")}</p>
+            </div>
+          </div>
+
+          <nav className="flex flex-col gap-3 text-sm md:flex-row md:gap-6">
+            <Link href="/products" className="text-muted-foreground hover:text-foreground transition-colors">
+              {t("products")}
+            </Link>
+            <Link href="/#que-hacemos" className="text-muted-foreground hover:text-foreground transition-colors">
+              {t("services")}
+            </Link>
+            <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              {t("about")}
+            </Link>
+            <a
+              href="mailto:info@oniriasolutions.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              info@oniriasolutions.com
+            </a>
             <a
               href="https://www.instagram.com/oniriasolutions"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram @oniriasolutions"
-              className="text-[#94a3b8]/40 hover:text-[#E1306C] transition-colors duration-300"
+              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Instagram className="w-4 h-4" />
+              @oniriasolutions
             </a>
-            <p className="text-xs text-[#94a3b8]/40">
-              © {new Date().getFullYear()} ONIRIASOLUTIONS
-            </p>
-          </div>
+          </nav>
+        </div>
+
+        <div className="mono-label mt-12 flex flex-col gap-2 border-t border-border pt-6 text-muted-foreground sm:flex-row sm:justify-between">
+          <span>© {new Date().getFullYear()} ONIRIASOLUTIONS S.A.S.</span>
+          <span>{t("origin")}</span>
         </div>
       </div>
     </footer>

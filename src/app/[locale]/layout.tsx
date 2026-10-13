@@ -1,31 +1,34 @@
 import "./globals.css"
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {notFound} from 'next/navigation';
-import {Locale, hasLocale, NextIntlClientProvider} from 'next-intl';
-import {getTranslations, setRequestLocale} from 'next-intl/server';
-import {clsx} from 'clsx';
+import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {routing} from '../../i18n/routing';
 import Navbar from '@/src/components/layout/navbar';
 import Footer from '@/src/components/layout/footer';
-import { Geist, Geist_Mono, Inter, Space_Grotesk } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
 import { ThemeProvider } from "../../components/theme-provider"
 import { cn } from "../../lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
+const fontSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
 })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-geist-mono",
 })
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{locale: string}>;
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0B" },
+  ],
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -54,13 +57,9 @@ export default async function LocaleLayout({children, params}: Props) {
   }
 
   return (
-    <html lang={locale} className={cn("antialiased dark", fontMono.variable, "font-sans", inter.variable, spaceGrotesk.variable)} suppressHydrationWarning>
-    <head>
-        <meta name="theme-color" content="#0a0a0f" />
-    </head>
-    
-      <body className="bg-[#0a0a0f] text-white">
-        <ThemeProvider defaultTheme="dark" enableSystem={false} forcedTheme="dark">
+    <html lang={locale} className={cn("antialiased font-sans", fontSans.variable, fontMono.variable)} suppressHydrationWarning>
+      <body>
+        <ThemeProvider>
             <NextIntlClientProvider>
                 <Navbar/>
                     {children}

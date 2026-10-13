@@ -42,9 +42,7 @@ caching and TLS are Vercel's.
 `CI / Quality Checks` is a required check, so a red build blocks the merge. Push straight to `main`
 and you bypass it — use a PR.
 
-**Environment variables** (`.env.local` locally, Vercel project settings in CI): `N8N_HMAC_SECRET`
-and `N8N_WEBHOOK_URL`. Both must be set for **Production *and* Preview** — without the Preview
-values the contact form fails on preview deployments.
+**Environment variables:** none. The site is static content; the contact form and its n8n webhook were removed in the 2026 redesign.
 
 **Rollback:** Vercel dashboard → Deployments → pick the last good one → Instant Rollback. No git
 revert needed.

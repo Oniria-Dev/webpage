@@ -4,20 +4,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
   output: 'standalone',
 
-  async headers() {
-    return [
-      {
-        // Next serves /public with `max-age=0`, so the logo would be revalidated
-        // on every navigation. Rename the file if the artwork ever changes.
-        source: '/logo.svg',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
+  // Pages removed in the 2026 redesign; keeps indexed links from 404ing.
+  async redirects() {
+    return ['solutions', 'contact', 'education/:path*', 'process/:path*'].map((path) => ({
+      source: `/:locale(en|es)/${path}`,
+      destination: '/:locale',
+      permanent: true,
+    }));
   },
 };
  

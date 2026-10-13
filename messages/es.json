@@ -7,309 +7,261 @@
         }
     },
     "Navigation": {
-        "solutions": "Soluciones",
-        "education": "Educación",
-        "contact": "Contáctenos",
-        "demo": "Reserve una demo",
-        "process": "Nuestro proceso",
-        "Footer": "Automatización • IA • Integraciones"
+        "products": "Productos",
+        "services": "Qué hacemos",
+        "about": "Nosotros",
+        "menu": "Menú",
+        "theme": "Cambiar tema",
+        "tagline": "Del sueño al sistema.",
+        "signature": "Desde el centro del mundo, para todo el mundo",
+        "origin": "0° · Quito, Ecuador"
     },
     "NotFound": {
         "title": "Página no encontrada",
         "description": "Lo sentimos, no hemos podido encontrar la página que busca.",
         "backHome": "Volver al inicio"
     },
-    "LandingPage": {
+    "Home": {
         "Metadata": {
-            "title": "Oniria Solutions | Automatización e IA para empresas",
-            "description": "Ayudamos a empresas a eliminar el trabajo manual y crecer más rápido con sistemas de automatización personalizados con n8n e IA. Resultados rápidos, atención personal, a tu escala."
-        },
-        "title": "Lo que podemos hacer por ti",
-        "features": {
-            "badge": "Por qué elegirnos",
-            "subtitle": "Combinamos las herramientas correctas, experiencia genuina y una asociación real — para que obtengas resultados que duran."
-        },
-        "card1": {
-            "title": "Automatización de procesos",
-            "description": "Eliminamos tareas manuales y repetitivas diseñando flujos conectados entre todas las herramientas de tu negocio."
-        },
-        "card2": {
-            "title": "Agentes de IA",
-            "description": "Desplegamos agentes de IA que razonan, deciden y actúan — manejando tareas que antes requerían atención humana las 24 horas."
-        },
-        "card3": {
-            "title": "Integraciones de herramientas",
-            "description": "Conectamos tu CRM, correo, apps de mensajería, bases de datos y más — para que tus datos fluyan sin fricción."
-        },
-        "card4": {
-            "title": "Infraestructura confiable",
-            "description": "Todas las soluciones son mantenibles, auditables y escalables — tuyas, no encerradas en una caja negra."
-        },
-        "discoverMore": "Descubrir más"
-    },
-    "AnimatedCard": {
-        "badge": "Automatización con IA",
-        "title": "Tu negocio, funcionando de forma más inteligente",
-        "description": "Construimos sistemas de automatización personalizados con n8n e IA — eliminando el trabajo manual y liberando a tu equipo para enfocarse en lo que realmente importa.",
-        "button1": "Hablemos",
-        "button2": "Ver cómo funciona"
-    },
-    "Schedule": {
-        "title": "Construyamos tu primera automatización",
-        "description": "Cuéntanos sobre tu negocio y te mostraremos exactamente dónde la automatización hace la mayor diferencia — gratis.",
-        "button": "Solicitar una consulta gratuita"
-    },
-    "Contact": {
-        "Metadata": {
-            "title": "Contacto | Oniria Solutions",
-            "description": "Ponte en contacto con el equipo de Oniria. Cuéntanos sobre la automatización que quieres construir y te respondemos en menos de un día hábil."
-        },
-        "title": "Ponte en contacto",
-        "description": "Cuéntanos sobre la automatización que quieres construir. Te respondemos en menos de un día hábil.",
-        "sent": {
-            "title": "Mensaje enviado",
-            "description": "Te responderemos en menos de un día hábil."
-        },
-        "name": "Nombre",
-        "email": "Email",
-        "company": "Empresa (Opcional)",
-        "project": {
-            "title": "Descripción del proyecto",
-            "description": "Describe el proceso que quieres automatizar"
-        },
-        "button": {
-            "sending": "Enviando mensaje...",
-            "pending": "Enviar mensaje"
-        }
-    },
-    "Education": {
-        "Metadata": {
-            "title": "AI Learning Hub | Oniria Solutions",
-            "description": "Cursos, guías y recursos sobre automatización e IA — próximamente de Oniria Solutions."
-        },
-        "comingSoon": {
-            "badge": "Próximamente",
-            "title": "AI Learning Hub",
-            "description": "Estamos construyendo una biblioteca de cursos prácticos, guías y casos de uso reales sobre automatización e IA. Sé el primero en enterarte cuando esté listo.",
-            "cta": "Avisarme cuando esté disponible",
-            "feature1": "Cursos prácticos de automatización con n8n",
-            "feature2": "Guías de integración de IA para equipos no técnicos",
-            "feature3": "Casos de uso reales de proyectos reales",
-            "feature4": "Recursos para PYMES y startups"
-        }
-    },
-    "Solutions": {
-        "Metadata": {
-            "title": "Soluciones | Oniria Solutions",
-            "description": "Explora las soluciones de automatización e IA de Oniria — automatización de flujos, agentes de IA, integraciones y infraestructura confiable para PYMES y startups."
+            "title": "Software, automatización e IA para empresas",
+            "description": "Oniria construye software a medida, automatización e inteligencia artificial para empresas que quieren dejar de operar a mano y empezar a crecer."
         },
         "hero": {
-            "badge": "Oniria Automation Suite",
-            "title": "Inteligencia que fluye\npor toda tu operación",
-            "subtitle": "Soluciones diseñadas específicamente que combinan automatización de flujos, agentes de IA, integraciones de herramientas e infraestructura confiable — para empresas que quieren resultados reales.",
-            "ctaPrimary": "Explorar soluciones",
-            "ctaSecondary": "Hablar con un experto"
+            "label": "0° · Software · IA · Automatización",
+            "title": "<em>Del sueño</em> al sistema.",
+            "lead": "Oniria construye software, automatización e inteligencia artificial para empresas que quieren dejar de operar a mano y empezar a crecer.",
+            "products": "Ver productos",
+            "about": "Conoce a Oniria"
         },
-        "section": {
-            "title": "Todo lo que necesitas para automatizar",
-            "subtitle": "Soluciones prácticas y enfocadas que se adaptan a tu negocio — construidas con herramientas que tú posees y puedes mantener para siempre."
+        "what": {
+            "label": "Qué hacemos",
+            "title": "<em>Menos manual.</em> Más negocio.",
+            "intro": "Explicamos la tecnología por lo que logra, no por cómo está construida. Hacemos tres cosas.",
+            "example": "Por ejemplo",
+            "items": [
+                {
+                    "title": "Software a medida",
+                    "description": "Plataformas web y sistemas internos construidos alrededor de cómo trabaja tu empresa, no al revés.",
+                    "example": "Tus ventas, tu contabilidad y tu marketing en un solo sistema."
+                },
+                {
+                    "title": "Automatización de procesos",
+                    "description": "Conectamos las herramientas que ya usas para que el trabajo repetitivo se haga solo.",
+                    "example": "Tu equipo deja de copiar datos entre hojas de Excel."
+                },
+                {
+                    "title": "Inteligencia artificial aplicada",
+                    "description": "Agentes que leen, deciden y actúan dentro de tu operación, con reglas claras.",
+                    "example": "Un agente responde a tus clientes a las 11 de la noche."
+                }
+            ]
         },
-        "cards": [
+        "products": {
+            "label": "Productos",
+            "title": "<em>Del método</em> a productos propios.",
+            "intro": "Además de construir para otras empresas, diseñamos y operamos nuestros propios productos. Son la mejor muestra de cómo trabajamos.",
+            "all": "Ver todos los productos"
+        },
+        "how": {
+            "label": "Cómo trabajamos",
+            "title": "<em>Del caos</em> al flujo.",
+            "intro": "Cuatro pasos. Ves el sistema funcionando antes de firmar.",
+            "steps": [
+                {
+                    "title": "Analizar",
+                    "description": "Entendemos cómo opera tu empresa hoy: qué se hace a mano, dónde se pierde tiempo y qué conviene cambiar primero."
+                },
+                {
+                    "title": "Conectar",
+                    "description": "Unimos tus herramientas y tus datos para que la información viaje sola de un lugar a otro."
+                },
+                {
+                    "title": "Implementar",
+                    "description": "Construimos el sistema, te lo mostramos funcionando y lo ajustamos con tu equipo antes de ponerlo en marcha."
+                },
+                {
+                    "title": "Escalar",
+                    "description": "Medimos resultados, corregimos y sumamos nuevos procesos cuando el primero ya trabaja solo."
+                }
+            ]
+        },
+        "origin": {
+            "label": "Origen",
+            "title": "<em>Desde el centro del mundo,</em> para todo el mundo.",
+            "body": "La línea que cruza nuestro logotipo es el ecuador: la única que da la vuelta completa al planeta y une ambos hemisferios. Nacimos sobre ella, y por eso trabajamos para cualquier mercado.",
+            "link": "Conoce a Oniria"
+        }
+    },
+    "Products": {
+        "Metadata": {
+            "title": "Productos",
+            "description": "Argos Suite y Oniric: los productos que Oniria diseña y opera."
+        },
+        "label": "Productos",
+        "title": "<em>Ideas propias,</em> sistemas en marcha.",
+        "intro": "Cada producto resuelve un problema concreto de operación. Los construimos con el mismo método que usamos con nuestros clientes.",
+        "view": "Ver producto",
+        "visit": "Visitar {name}",
+        "back": "Todos los productos",
+        "forWhom": "Para quién",
+        "solves": "Qué resuelve",
+        "includes": {
+            "label": "Qué incluye",
+            "title": "<em>De la pantalla</em> al trabajo diario."
+        },
+        "screens": {
+            "label": "Así se ve",
+            "title": "<em>Una idea</em> por pantalla."
+        },
+        "items": {
+            "argos-suite": {
+                "name": "Argos Suite",
+                "category": "Gestión para negocios de mascotas",
+                "tagline": "Guardería, peluquería y veterinaria en un solo sistema.",
+                "description": "Argos Suite reúne la operación diaria y las finanzas de un negocio de cuidado de mascotas. Cada área trabaja con sus propias herramientas y todas comparten la misma ficha de clientes y mascotas.",
+                "forWhom": "Guarderías, peluquerías y clínicas veterinarias, con una o varias de estas áreas bajo el mismo techo.",
+                "solves": "Reservas en un lado, historias clínicas en otro y cobros en una hoja de cálculo. Argos lo junta y mantiene separadas las cuentas de cada área.",
+                "features": [
+                    {
+                        "title": "Guardería",
+                        "description": "Cupos por sala en tiempo real, ingresos y salidas con control de aforo, planes semanales y rutas de transporte."
+                    },
+                    {
+                        "title": "Peluquería",
+                        "description": "Agenda por franja horaria y un tablero que sigue cada servicio desde la cita hasta la entrega."
+                    },
+                    {
+                        "title": "Veterinaria",
+                        "description": "Consultas, historia clínica, vacunas, recetas, hospitalización, cirugías y laboratorio."
+                    },
+                    {
+                        "title": "Clientes y mascotas",
+                        "description": "Una sola ficha con historial, vacunas y fotos, compartida entre todas las áreas."
+                    },
+                    {
+                        "title": "Finanzas",
+                        "description": "Cobros e ingresos separados por área, cuentas por pagar, inventario y un panel consolidado."
+                    },
+                    {
+                        "title": "Módulos",
+                        "description": "Cada negocio activa solo lo que usa. Una peluquería no ve las pantallas de la clínica."
+                    }
+                ],
+                "shots": {
+                    "panel": "Panel general",
+                    "guarderia": "Guardería",
+                    "veterinaria": "Veterinaria",
+                    "finanzas": "Finanzas"
+                }
+            },
+            "oniric": {
+                "name": "Oniric",
+                "category": "Publicidad con IA",
+                "tagline": "Anuncios en video e imagen para tu negocio, sin equipo de marketing.",
+                "description": "Oniric es una plataforma para que empresas de Latinoamérica creen videos e imágenes publicitarias con inteligencia artificial. Un asistente guía cada paso, en español y sin jerga técnica.",
+                "forWhom": "Dueños de negocio que no tienen equipo de marketing y necesitan un anuncio listo para publicar.",
+                "solves": "Producir un anuncio pide tiempo, dinero y gente que una empresa pequeña no siempre tiene. Oniric lo reduce a tres pasos.",
+                "features": [
+                    {
+                        "title": "Asistente de tres pasos",
+                        "description": "Un recorrido guiado que te lleva de la foto de tu producto al anuncio terminado."
+                    },
+                    {
+                        "title": "Plantillas por industria",
+                        "description": "Puntos de partida pensados para cada tipo de negocio. La plantilla elige la tecnología por ti."
+                    },
+                    {
+                        "title": "Calendario comercial",
+                        "description": "Ideas de campaña para las fechas que mueven las ventas en Ecuador."
+                    },
+                    {
+                        "title": "Voz en off",
+                        "description": "El video puede llevar una voz de catálogo o tu propia voz, grabada desde la app."
+                    },
+                    {
+                        "title": "Galería y descargas",
+                        "description": "Todo lo que creas queda guardado, listo para descargar y compartir."
+                    },
+                    {
+                        "title": "Créditos prepagados",
+                        "description": "Compras paquetes pequeños de créditos y pagas solo por lo que generas."
+                    }
+                ],
+                "shots": {}
+            }
+        }
+    },
+    "About": {
+        "Metadata": {
+            "title": "Nosotros",
+            "description": "Quiénes somos, qué hacemos y de dónde viene Oniria: el atrapasueños, la línea 0° y un método para convertir ideas en sistemas."
+        },
+        "label": "Esencia",
+        "title": "<em>Ambición de sobra</em> y un método para cumplirla.",
+        "lead": "Para las empresas que saben que pueden más, Oniria es el equipo que convierte ideas en sistemas que trabajan solos, con el rigor de una gran tecnológica y la cercanía de un equipo pequeño.",
+        "facts": [
             {
-                "id": "workflow-automation",
-                "title": "Automatización de procesos",
-                "description": "Diseñamos flujos conectados que eliminan tareas manuales en tus operaciones — desde la captación de leads hasta los reportes.",
-                "learnMore": "Saber más"
+                "title": "Qué hacemos",
+                "description": "Software a medida, automatización de procesos e inteligencia artificial aplicada al negocio."
             },
             {
-                "id": "ai-agents",
-                "title": "Agentes de IA",
-                "description": "Desplegamos agentes que clasifican, deciden y actúan — manejando trabajo cognitivo repetitivo para que tu equipo no tenga que hacerlo.",
-                "learnMore": "Saber más"
+                "title": "Para quién",
+                "description": "Empresas medianas y startups con ambición, en cualquier mercado. Si el problema es operar mejor, podemos ayudar."
             },
             {
-                "id": "real-time-sync",
-                "title": "Integraciones de herramientas",
-                "description": "Conectamos las herramientas que ya usas — CRM, correo, mensajería, bases de datos — en un ecosistema unificado e inteligente.",
-                "learnMore": "Saber más"
-            },
-            {
-                "id": "global-infrastructure",
-                "title": "Infraestructura confiable",
-                "description": "Cada solución es autohospedada, auditable y tuya — sin tarifas por uso, sin dependencia de proveedores, sin sorpresas.",
-                "learnMore": "Saber más"
+                "title": "Cómo nos distinguimos",
+                "description": "Mostramos el sistema funcionando antes de firmar. Rigor de gran tecnológica, trato de equipo pequeño."
             }
         ],
-        "cta": {
-            "title": "¿Listo para empezar a automatizar?",
-            "subtitle": "Cuéntanos sobre tu negocio y diseñaremos una solución que se ajuste a tus necesidades y tu presupuesto.",
-            "button": "Contáctanos"
+        "concept": {
+            "label": "Concepto",
+            "title": "<em>El atrapasueños</em> y la línea 0°.",
+            "body": "Oniria viene de lo onírico: el mundo de los sueños. Un atrapasueños retiene lo valioso y deja pasar el ruido. Eso hacemos con la tecnología: atrapamos tu visión y la convertimos en algo que funciona. Nuestro símbolo lo cuenta en cuatro partes.",
+            "parts": [
+                {
+                    "title": "La red",
+                    "description": "Abajo, una red tejida que retiene lo valioso. También se lee como una red de nodos conectados."
+                },
+                {
+                    "title": "La línea 0°",
+                    "description": "El ecuador: la única línea que rodea el planeta entero. Dice de dónde venimos y que miramos a todos los mercados."
+                },
+                {
+                    "title": "La estela",
+                    "description": "Puntos que crecen de izquierda a derecha. Es el camino que recorre la idea."
+                },
+                {
+                    "title": "La idea",
+                    "description": "El punto más grande, ya pasada la cima. El sueño convertido en sistema."
+                }
+            ]
+        },
+        "traits": {
+            "label": "Carácter",
+            "title": "<em>Cuatro rasgos,</em> una sola voz.",
+            "items": [
+                {
+                    "title": "Ambiciosa",
+                    "description": "Pensamos al nivel de las mejores tecnológicas y lo decimos sin pedir permiso."
+                },
+                {
+                    "title": "Precisa",
+                    "description": "Minimalista por decisión. Cada línea, palabra y píxel tiene una función."
+                },
+                {
+                    "title": "Joven",
+                    "description": "Energía de equipo que quiere llegar lejos. Rápida, curiosa, sin solemnidad."
+                },
+                {
+                    "title": "Global",
+                    "description": "Nace sobre la línea que rodea el planeta y piensa en cualquier mercado desde el primer día."
+                }
+            ]
+        },
+        "origin": {
+            "label": "Origen",
+            "title": "<em>El origen es la firma;</em> el mundo es el alcance.",
+            "body": "Oniria nació en Quito, Ecuador, sobre la línea que cruza nuestro símbolo. Escribimos en español neutro y trabajamos en inglés desde el primer día, para que el mensaje funcione igual en cualquier país."
         }
-    },
-    "HowItWorks": {
-        "badge": "Proceso",
-        "title": "Cómo funciona",
-        "subtitle": "Cuatro pasos enfocados para transformar cómo opera tu negocio",
-        "step1": {
-            "title": "Analizamos tus procesos",
-            "description": "Mapeamos tus flujos actuales, identificamos cuellos de botella y diseñamos una hoja de ruta de automatización priorizada para tu negocio.",
-            "button": "Saber más"
-        },
-        "step2": {
-            "title": "Conectamos tus herramientas",
-            "description": "Integramos tus apps y plataformas existentes en un ecosistema conectado e inteligente — impulsado por n8n.",
-            "button": "Saber más"
-        },
-        "step3": {
-            "title": "Implementamos IA",
-            "description": "Desplegamos agentes de IA que toman decisiones, procesan datos y ejecutan tareas — sin intervención manual.",
-            "button": "Saber más"
-        },
-        "step4": {
-            "title": "Escalamos tu negocio",
-            "description": "Monitoreamos el rendimiento, resolvemos problemas proactivamente y expandimos tus automatizaciones a medida que tu negocio crece.",
-            "button": "Saber más"
-        }
-    },
-    "WhyOniria": {
-        "badge": "Por qué Oniria",
-        "title": "Construido diferente, para ti",
-        "subtitle": "No somos una agencia genérica. Somos especialistas en automatización que trabajamos a tu lado — desde la primera conversación hasta los resultados a largo plazo.",
-        "pillar1": {
-            "title": "Especialistas en n8n + IA",
-            "description": "Trabajamos con herramientas open-source probadas. Sin dependencia de proveedores, sin cajas negras — solo soluciones confiables y mantenibles que tú posees."
-        },
-        "pillar2": {
-            "title": "Atención directa y personal",
-            "description": "Trabajas con las personas que construyen tu solución. Sin gestores de cuenta, sin call centers — colaboración real desde el primer día."
-        },
-        "pillar3": {
-            "title": "Escalable para cualquier etapa",
-            "description": "Desde startups en crecimiento hasta empresas consolidadas, diseñamos sistemas de automatización que se adaptan a tu escala actual y evolucionan con tus objetivos."
-        },
-        "pillar4": {
-            "title": "Resultados rápidos y tangibles",
-            "description": "Tu primera automatización puede estar en producción en días, no meses. Nos enfocamos en entregar valor real desde el primer día."
-        }
-    },
-    "Process": {
-        "nav": {
-            "back": "Volver al inicio",
-            "step": "Paso",
-            "of": "de 4",
-            "previous": "Paso anterior",
-            "next": "Siguiente paso"
-        },
-        "cta": {
-            "title": "¿Listo para empezar?",
-            "button": "Solicitar una consulta gratuita"
-        },
-        "analyze": {
-            "step": "01",
-            "badge": "Análisis y estrategia",
-            "title": "Analizamos tus procesos",
-            "subtitle": "El primer paso para automatizar tu negocio es entenderlo en profundidad. Mapeamos todo — y te mostramos exactamente dónde la automatización entrega más valor.",
-            "whatTitle": "Qué hacemos",
-            "what1": "Mapeamos tus flujos de trabajo de extremo a extremo",
-            "what2": "Identificamos cuellos de botella, tareas repetitivas y transferencias manuales",
-            "what3": "Estimamos el tiempo y costo ahorrado al automatizar cada proceso",
-            "what4": "Diseñamos una hoja de ruta de automatización priorizada para tu negocio",
-            "beforeTitle": "Antes de Oniria",
-            "before1": "Copiar datos manualmente entre plataformas",
-            "before2": "Horas perdidas en tareas administrativas repetitivas",
-            "before3": "Información importante que se pierde entre las grietas",
-            "before4": "Agotamiento del equipo por trabajo manual evitable",
-            "afterTitle": "Después de Oniria",
-            "after1": "Los datos fluyen automáticamente entre tus herramientas",
-            "after2": "Tu equipo se enfoca en trabajo de alto valor",
-            "after3": "Cada proceso es rastreable, auditable y confiable",
-            "after4": "Las operaciones escalan sin agregar personal",
-            "deliverablesTitle": "Lo que recibes",
-            "deliverable1": "Documento de auditoría de procesos",
-            "deliverable2": "Mapa de oportunidades de automatización",
-            "deliverable3": "ROI estimado por flujo de trabajo",
-            "deliverable4": "Hoja de ruta de implementación priorizada",
-            "ctaTitle": "Solicita tu auditoría de procesos gratuita",
-            "ctaButton": "Obtener mi diagnóstico gratuito"
-        },
-        "connect": {
-            "step": "02",
-            "badge": "Integración de herramientas",
-            "title": "Conectamos tus herramientas",
-            "subtitle": "Integramos todas tus apps y plataformas existentes en un ecosistema conectado e inteligente — con n8n como el hub central.",
-            "whatTitle": "Qué hacemos",
-            "what1": "Auditamos las herramientas y plataformas que ya usas",
-            "what2": "Diseñamos flujos de integración con n8n como hub central",
-            "what3": "Construimos sincronización bidireccional de datos entre tus sistemas",
-            "what4": "Configuramos alertas de error y monitoreo desde el primer día",
-            "toolsTitle": "Herramientas que integramos",
-            "whyN8nTitle": "¿Por qué n8n?",
-            "whyN8n": "n8n es una plataforma de automatización de flujos de trabajo open-source. A diferencia de Zapier o Make, n8n puede ser autohospedado — lo que significa que tus datos nunca salen de tu infraestructura, y no hay tarifas por tarea. Somos especialistas en desplegar y personalizar n8n para empresas de cualquier tamaño.",
-            "ctaTitle": "Conectemos tu stack tecnológico",
-            "ctaButton": "Hablar con un experto"
-        },
-        "implement": {
-            "step": "03",
-            "badge": "Implementación de IA",
-            "title": "Implementamos IA",
-            "subtitle": "Desplegamos agentes de IA que razonan, deciden y actúan — para que tu equipo pueda enfocarse en el trabajo que realmente necesita un humano.",
-            "whatTitle": "Qué hacemos",
-            "what1": "Definimos el alcance y la lógica de decisión de cada agente de IA",
-            "what2": "Conectamos los agentes a tus fuentes de datos y herramientas de negocio",
-            "what3": "Implementamos salvaguardas y puntos de control humano",
-            "what4": "Probamos, validamos y ajustamos el rendimiento antes de salir en vivo",
-            "usecasesTitle": "Casos de uso reales",
-            "usecase1Title": "Enrutamiento inteligente de leads",
-            "usecase1Desc": "La IA clasifica y asigna los leads entrantes a la persona correcta — automáticamente, según tus propios criterios.",
-            "usecase2Title": "Soporte al cliente automatizado",
-            "usecase2Desc": "Los agentes de IA manejan consultas comunes y escalan solo lo que genuinamente necesita un humano.",
-            "usecase3Title": "Procesamiento de documentos",
-            "usecase3Desc": "Extrae, clasifica y enruta datos de facturas, formularios y correos sin tocarlos manualmente.",
-            "usecase4Title": "Generación de contenido y reportes",
-            "usecase4Desc": "Genera primeros borradores de reportes, resúmenes y actualizaciones adaptados a la voz de tu marca.",
-            "ctaTitle": "¿Listo para poner la IA a trabajar en tu negocio?",
-            "ctaButton": "Iniciar la conversación"
-        },
-        "scale": {
-            "step": "04",
-            "badge": "Crecimiento y optimización",
-            "title": "Escalamos tu negocio",
-            "subtitle": "La automatización no es un proyecto de una sola vez. Monitoreamos, optimizamos y expandimos tus sistemas a medida que tu negocio crece — continuamente.",
-            "whatTitle": "Qué hacemos",
-            "what1": "Monitoreamos todas las automatizaciones con visibilidad en tiempo real",
-            "what2": "Detectamos y solucionamos problemas antes de que te afecten",
-            "what3": "Expandimos la cobertura a nuevos procesos a medida que evolucionan tus necesidades",
-            "what4": "Proporcionamos reportes regulares de rendimiento y recomendaciones de optimización",
-            "timelineTitle": "Tu línea de tiempo de crecimiento",
-            "month1Label": "Mes 1",
-            "month1Desc": "Primeras automatizaciones en producción, victorias rápidas entregadas",
-            "month3Label": "Mes 3",
-            "month3Desc": "Flujos principales automatizados, equipo completamente integrado",
-            "month6Label": "Mes 6",
-            "month6Desc": "Operaciones más eficientes, listo para seguir escalando",
-            "ctaTitle": "Construyamos algo que dure",
-            "ctaButton": "Hablar con el equipo",
-            "resultsTitle": "Lo que ganarás a largo plazo",
-            "result1Title": "Operaciones más eficientes",
-            "result1Desc": "Las tareas que tomaban horas se ejecutan en segundos — liberando a tu equipo para el trabajo que realmente necesita.",
-            "result2Title": "Datos de rendimiento claros",
-            "result2Desc": "Paneles y alertas que muestran exactamente cómo rinden tus automatizaciones, en tiempo real.",
-            "result3Title": "Sistemas flexibles y modulares",
-            "result3Desc": "Tus automatizaciones son modulares — fáciles de extender, auditar y adaptar a medida que tu negocio evoluciona.",
-            "result4Title": "Soporte experto continuo",
-            "result4Desc": "Seguimos comprometidos después del lanzamiento — monitoreando, mejorando y escalando tus sistemas junto a ti."
-        }
-    },
-    "QualifySection": {
-        "badge": "¿Es para ti?",
-        "title": "Señales de que tu negocio está listo para automatizar",
-        "subtitle": "Estos patrones aparecen en empresas de todos los tamaños e industrias. Si alguno te suena familiar, tenemos que hablar.",
-        "signal1": "Tu equipo pasa horas cada semana en tareas que siguen los mismos pasos manuales una y otra vez.",
-        "signal2": "Tus datos viven en múltiples herramientas desconectadas — y sincronizarlos consume tiempo real.",
-        "signal3": "Los leads, clientes o socios no reciben respuestas tan rápido como quisieras.",
-        "signal4": "Quieres hacer crecer tu operación sin aumentar proporcionalmente tu equipo.",
-        "signal5": "Te falta visibilidad — no hay reportes claros sobre lo que está pasando en tu negocio.",
-        "signal6": "Lo intentaste con automatización antes, pero no funcionó o no fue construida para tus necesidades reales.",
-        "cta": "Revisemos tus procesos juntos"
     }
 }
