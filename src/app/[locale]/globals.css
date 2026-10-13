@@ -4,98 +4,69 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Palette from brand/Oniria Manual de Marca.md, section 03. */
 @theme {
-  --color-brand-200: #B3D4F7;
-  --color-brand-300: #8ABEF2;
-  --color-brand-500: #62a5ec;
-  --color-brand-800: #2C5A8C;
-  --color-brand-900: #1A2F47;
+  --color-negro: #0a0a0b;
+  --color-blanco: #ffffff;
+  --color-grafito: #1c1c1f;
+  --color-gris: #5e5e63;
+  --color-plata: #a1a1a6;
+  --color-niebla: #f2f2f3;
 }
 
 :root {
-    --background: oklch(0.06 0.01 285);
-    --foreground: oklch(0.95 0 0);
-    --card: oklch(0.12 0.01 280);
-    --card-foreground: oklch(0.95 0 0);
-    --popover: oklch(0.12 0.01 280);
-    --popover-foreground: oklch(0.95 0 0);
-    --primary: oklch(0.7074 0.1252 251.25);
-    --primary-foreground: oklch(0.46 0.0963 252.33);
-    --secondary: oklch(0.2 0.01 280);
-    --secondary-foreground: oklch(0.95 0 0);
-    --muted: oklch(0.18 0.01 280);
-    --muted-foreground: oklch(0.6 0.01 250);
-    --accent: oklch(0.25 0.02 280);
-    --accent-foreground: oklch(0.95 0 0);
+    color-scheme: light;
+    --background: #ffffff;
+    --foreground: #0a0a0b;
+    --card: #f7f7f8;
+    --card-foreground: #0a0a0b;
+    --popover: #ffffff;
+    --popover-foreground: #0a0a0b;
+    --primary: #0a0a0b;
+    --primary-foreground: #ffffff;
+    --secondary: #f2f2f3;
+    --secondary-foreground: #0a0a0b;
+    --muted: #f2f2f3;
+    --muted-foreground: #5e5e63;
+    --accent: #f2f2f3;
+    --accent-foreground: #0a0a0b;
     --destructive: oklch(0.58 0.22 27);
-    --border: oklch(1 0 0 / 6%);
-    --input: oklch(1 0 0 / 10%);
-    --ring: oklch(0.46 0.0963 252.33);
-    --chart-1: oklch(0.828 0.111 230.318);
-    --chart-2: oklch(0.685 0.169 237.323);
-    --chart-3: oklch(0.588 0.158 241.966);
-    --chart-4: oklch(0.5 0.134 242.749);
-    --chart-5: oklch(0.443 0.11 240.79);
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --ring: #0a0a0b;
     --radius: 0.625rem;
-    --sidebar: oklch(0.1 0.01 280);
-    --sidebar-foreground: oklch(0.95 0 0);
-    --sidebar-primary: oklch(0.55 0.2 280);
-    --sidebar-primary-foreground: oklch(0.98 0 0);
-    --sidebar-accent: oklch(0.18 0.01 280);
-    --sidebar-accent-foreground: oklch(0.95 0 0);
-    --sidebar-border: oklch(1 0 0 / 6%);
-    --sidebar-ring: oklch(0.46 0.0963 252.33);
+    /* The one accent: Cobre on light, Cobre claro on dark. Never above 5% of a page. */
+    --dot: #a65c24;
 }
 
+/* Also set on single sections (hero, footer) that are always the Negro field. */
 .dark {
-    --background: oklch(0.06 0.01 285);
-    --foreground: oklch(0.95 0 0);
-    --card: oklch(0.12 0.01 280);
-    --card-foreground: oklch(0.95 0 0);
-    --popover: oklch(0.12 0.01 280);
-    --popover-foreground: oklch(0.95 0 0);
-    --primary: oklch(0.7074 0.1252 251.25);
-    --primary-foreground: oklch(0.98 0 0);
-    --secondary: oklch(0.2 0.01 280);
-    --secondary-foreground: oklch(0.95 0 0);
-    --muted: oklch(0.18 0.01 280);
-    --muted-foreground: oklch(0.6 0.01 250);
-    --accent: oklch(0.25 0.02 280);
-    --accent-foreground: oklch(0.95 0 0);
+    color-scheme: dark;
+    --background: #0a0a0b;
+    --foreground: #f5f5f6;
+    --card: #161618;
+    --card-foreground: #f5f5f6;
+    --popover: #161618;
+    --popover-foreground: #f5f5f6;
+    --primary: #f5f5f6;
+    --primary-foreground: #0a0a0b;
+    --secondary: #1c1c1f;
+    --secondary-foreground: #f5f5f6;
+    --muted: #1c1c1f;
+    --muted-foreground: #a1a1a6;
+    --accent: #1c1c1f;
+    --accent-foreground: #f5f5f6;
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 6%);
-    --input: oklch(1 0 0 / 10%);
-    --ring: oklch(0.7074 0.1252 251.25);
-    --chart-1: oklch(0.828 0.111 230.318);
-    --chart-2: oklch(0.685 0.169 237.323);
-    --chart-3: oklch(0.588 0.158 241.966);
-    --chart-4: oklch(0.5 0.134 242.749);
-    --chart-5: oklch(0.443 0.11 240.79);
-    --sidebar: oklch(0.1 0.01 280);
-    --sidebar-foreground: oklch(0.95 0 0);
-    --sidebar-primary: oklch(0.46 0.0963 252.33);
-    --sidebar-primary-foreground: oklch(0.98 0 0);
-    --sidebar-accent: oklch(0.18 0.01 280);
-    --sidebar-accent-foreground: oklch(0.95 0 0);
-    --sidebar-border: oklch(1 0 0 / 6%);
-    --sidebar-ring: oklch(0.46 0.0963 252.33);
+    --border: #2a2a2e;
+    --input: #2a2a2e;
+    --ring: #f5f5f6;
+    --dot: #e9a06a;
 }
 
 @theme inline {
-    --font-sans: var(--font-sans);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --color-cobre: var(--dot);
     --color-ring: var(--ring);
     --color-input: var(--input);
     --color-border: var(--border);
@@ -123,19 +94,49 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+@utility wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+/* Geist Mono labels and the 0° signature. */
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-[#0a0a0f] text-white;
+    @apply bg-background text-foreground;
     }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
     }
+  h1, h2 {
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    }
+  h3 {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    }
+  /* The brand's only emphasis: the idea in grey, the result in full colour. No italics. */
+  em {
+    font-style: normal;
+    color: var(--muted-foreground);
+    }
 
-  /* CSS animations and SMIL are outside MotionConfig's reach, so cover them here. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -149,19 +150,4 @@
       scroll-behavior: auto !important;
     }
   }
-}
-
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0f;
-}
-::-webkit-scrollbar-thumb {
-  background: #1a1a2e;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #2a2a3e;
 }

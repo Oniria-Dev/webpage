@@ -42,8 +42,6 @@ jobs:
         run: pnpm typecheck
 
       # Catches build breaks on the PR, before Vercel ever builds `main`.
-      # Needs no env: both N8N_* vars are read inside the server action body
-      # (submit-contact.tsx:11-12), never at module scope, so the build does
-      # not evaluate them.
+      # Needs no env.
       - name: Build
         run: pnpm build

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: 'Oniria Solutions',
     template: '%s | Oniria Solutions',
   },
-  description: 'Custom automation and AI systems for businesses of any size. Built on n8n. Fast results, personal attention.',
+  description: 'Custom software, automation and AI for companies that want to stop running by hand and start growing.',
   openGraph: {
     type: 'website',
     siteName: 'Oniria Solutions',
@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  icons: {
-    icon: '/logo.svg',
   },
 };
 

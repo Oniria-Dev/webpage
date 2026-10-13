@@ -1,0 +1,43 @@
+ONIRIA SOLUTIONS · Paquete de logotipo (v4, octubre 2026)
+=========================================================
+
+CARPETAS
+  SVG/      Vector, para web y cualquier uso escalable. Fuente principal.
+  PDF/      Vector para imprenta y documentos (Illustrator, InDesign, Word).
+  PNG/      Raster con fondo transparente, por forma y color:
+              horizontal  320 · 640 · 1280 · 2560 px de ancho
+              vertical    256 · 512 · 1024 · 2048 px de ancho
+              isotipo     32 · 48 · 64 · 128 · 256 · 512 · 1024 px
+              logotipo    240 · 480 · 960 · 1920 px de ancho
+  Favicon/  favicon.ico (16/32/48), favicon.svg, PNG 16–96, apple-touch-icon,
+            android-chrome 192/512, maskable-512 y site.webmanifest.
+  Redes/    Avatar 1080, imagen OG 1200×630, banner LinkedIn 1584×396 y
+            cabecera X 1500×500, en negro y en blanco.
+
+FORMAS
+  horizontal  Isotipo + Oniria + SOLUTIONS. Versión principal.
+  vertical    Apilada, para espacios cuadrados o altos.
+  isotipo     Solo el símbolo (Trayectoria).
+  logotipo    Solo la palabra Oniria.
+
+COLOR
+  sobre-blanco  Negro #0A0A0B + punto Cobre #A65C24. Para fondos claros.
+  sobre-negro   Blanco #FFFFFF + punto Cobre claro #E9A06A. Para fondos oscuros.
+  mono-negro    Todo negro. Una tinta, sellos, fax, grabado.
+  mono-blanco   Todo blanco. Una tinta sobre fotos o fondos de color.
+
+REGLAS RÁPIDAS
+  · Tamaño mínimo: horizontal 140 px (35 mm), isotipo 32 px (8 mm).
+    Entre 16 y 24 px usa el favicon.
+  · Espacio de respeto: la altura del punto de la idea, por cada lado.
+  · El Cobre va solo en el punto. Nunca pintes todo el logotipo de Cobre.
+  · Cobre claro sobre blanco no está permitido (contraste 2.2:1).
+  · No deformes, rotes, sombrees ni cambies la tipografía.
+
+HTML del favicon:
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+Manual de marca: https://claude.ai/artifact/W4abqFP4Q5U9BuaWAFMafp

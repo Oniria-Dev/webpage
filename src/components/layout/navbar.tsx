@@ -1,167 +1,78 @@
 "use client";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "../ui/sheet";
-import { Menu, ArrowRight, Instagram } from "lucide-react";
-import { LocaleSwitcher } from "./locale-switcher";
+import { useState } from "react";
+import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Link } from "../../i18n/navigation";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "../ui/sheet";
+import { Lockup } from "../brand/logo";
+import { LocaleSwitcher } from "./locale-switcher";
+import { ThemeToggle } from "./theme-toggle";
+
+const links = [
+  { href: "/products", key: "products" },
+  { href: "/#que-hacemos", key: "services" },
+  { href: "/about", key: "about" },
+] as const;
 
 export default function Navbar() {
   const t = useTranslations("Navigation");
-  const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = (href: string) => {
-    setSheetOpen(false);
-    router.push(href);
-  };
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/6 shadow-xl"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <Link
-          className="font-bold flex items-center text-lg tracking-tight text-white group"
-          href="/"
-        >
-          <img
-            src="/logo.svg"
-            width={32}
-            height={32}
-            className="h-8 w-8 mr-2.5 group-hover:rotate-6 transition-transform duration-300"
-            alt="ONIRIA"
-          />
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-white to-white/80">
-            ONIRIA
-          </span>
-          <span className="text-brand-500 font-normal ml-0.5 text-sm hidden sm:inline">
-            solutions
-          </span>
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+      <div className="wrap flex items-center justify-between py-3">
+        <Link href="/" aria-label="Oniria Solutions">
+          {/* 140px is the lockup's minimum width in the brand manual. */}
+          <Lockup aria-hidden className="h-auto w-[140px]" />
         </Link>
 
         {/* Desktop Navbar */}
-        <nav className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6 text-sm">
+        <nav className="hidden md:flex items-center gap-6">
+          {links.map((link) => (
             <Link
-              href="/solutions"
-              className="text-[#94a3b8] hover:text-white transition-colors duration-300 font-medium"
+              key={link.key}
+              href={link.href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              {t("solutions")}
+              {t(link.key)}
             </Link>
-            <Link
-              href="/education"
-              className="flex items-center gap-1.5 text-[#94a3b8] hover:text-white transition-colors duration-300 font-medium"
-            >
-              {t("education")}
-              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-brand-500/15 text-brand-400 leading-none">
-                Soon
-              </span>
-            </Link>
-            <Link
-              href="/contact"
-              className="text-[#94a3b8] hover:text-white transition-colors duration-300 font-medium"
-            >
-              {t("contact")}
-            </Link>
-          </div>
-
-          <a
-            href="https://www.instagram.com/oniriasolutions"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-[#94a3b8]/60 hover:text-[#E1306C] transition-colors duration-300"
-          >
-            <Instagram className="w-4 h-4" />
-          </a>
-
+          ))}
           <LocaleSwitcher />
-
-          <Button
-            size="sm"
-            className="rounded-full px-5 h-9 text-sm font-medium bg-linear-to-r from-brand-500 to-brand-300 hover:from-brand-500 hover:to-brand-800 text-white border-0 shadow-[0_0_20px_-4px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_-4px_rgba(124,58,237,0.6)] transition-all duration-300 group"
-            asChild
-          >
-            <Link href="/contact">
-              <span className="flex items-center gap-1.5">
-                {t("demo")}
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </Link>
-          </Button>
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Menu */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-1">
+          <ThemeToggle />
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <button className="p-2 text-white/70 hover:text-white transition-colors">
+              <button
+                aria-label={t("menu")}
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
                 <Menu className="h-5 w-5" />
               </button>
             </SheetTrigger>
-            <SheetContent
-              className="p-6 bg-[#0d0d1a] border-white/6"
-              side="right"
-            >
-              <SheetTitle className="sr-only">
-                Navigation Menu
-              </SheetTitle>
+            <SheetContent className="p-6" side="right">
+              <SheetTitle className="sr-only">{t("menu")}</SheetTitle>
 
               <div className="flex flex-col gap-6 mt-10">
                 <LocaleSwitcher />
-                <button
-                  onClick={() => handleNavClick("/solutions")}
-                  className="text-white/80 hover:text-white transition-colors text-lg text-left"
-                >
-                  {t("solutions")}
-                </button>
-                <button
-                  onClick={() => handleNavClick("/education")}
-                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-lg text-left"
-                >
-                  {t("education")}
-                  <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-brand-500/15 text-brand-400 leading-none">
-                    Soon
-                  </span>
-                </button>
-                <a
-                  href="https://www.instagram.com/oniriasolutions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#94a3b8]/80 hover:text-[#E1306C] transition-colors duration-300 text-base"
-                >
-                  <Instagram className="w-4 h-4" />
-                  @oniriasolutions
-                </a>
-                <Button
-                  className="rounded-full h-12 bg-linear-to-r from-brand-500 to-brand-800 text-white font-semibold mt-4"
-                  onClick={() => handleNavClick("/contact")}
-                >
-                  {t("demo")}
-                </Button>
+                {links.map((link) => (
+                  <Link
+                    key={link.key}
+                    href={link.href}
+                    onClick={() => setSheetOpen(false)}
+                    className="text-lg text-foreground"
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
               </div>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
