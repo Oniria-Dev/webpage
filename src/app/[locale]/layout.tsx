@@ -57,7 +57,7 @@ export default async function LocaleLayout({children, params}: Props) {
   }
 
   return (
-    <html lang={locale} className={cn("antialiased font-sans", fontSans.variable, fontMono.variable)} suppressHydrationWarning>
+    <html lang={locale} data-scroll-behavior="smooth" className={cn("antialiased font-sans", fontSans.variable, fontMono.variable)} suppressHydrationWarning>
       <body>
         <ThemeProvider>
             <NextIntlClientProvider>

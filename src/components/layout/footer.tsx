@@ -18,19 +18,19 @@ function Footer() {
             </div>
           </div>
 
-          <nav className="flex flex-col gap-3 text-sm md:flex-row md:gap-6">
-            <Link href="/products" className="text-muted-foreground hover:text-foreground transition-colors">
+          <nav className="flex flex-col text-sm md:flex-row md:gap-6">
+            <Link href="/products" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
               {t("products")}
             </Link>
-            <Link href="/#que-hacemos" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#que-hacemos" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
               {t("services")}
             </Link>
-            <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/about" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
               {t("about")}
             </Link>
             <a
               href="mailto:info@oniriasolutions.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3"
             >
               info@oniriasolutions.com
             </a>
@@ -38,7 +38,7 @@ function Footer() {
               href="https://www.instagram.com/oniriasolutions"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3"
             >
               <Instagram className="w-4 h-4" />
               @oniriasolutions

@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <main>
       <div className="wrap py-12 md:py-20">
-        <Link href="/products" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <Link href="/products" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground active:text-foreground transition-colors">
           <ArrowLeft className="h-4 w-4" />
           {t("back")}
         </Link>
