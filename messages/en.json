@@ -269,5 +269,32 @@
             "title": "<em>The origin is the signature;</em> the world is the reach.",
             "body": "Oniria was born in Quito, Ecuador, on the line that crosses our symbol. We write in neutral Spanish and work in English from day one, so the message lands the same in any country."
         }
+    },
+    "Machine": {
+        "index": "Oniria :: machine-readable index",
+        "note": "# Plain-text mirror of Oniria, for AI agents, crawlers and humans who prefer it raw.",
+        "home": "Home",
+        "sections": {
+            "about": "About",
+            "now": "Now",
+            "what": "What we do",
+            "products": "Products",
+            "how": "How we work",
+            "origin": "Origin"
+        },
+        "fields": {
+            "name": "Name",
+            "origin": "Origin",
+            "does": "Does",
+            "email": "Email",
+            "instagram": "Instagram",
+            "signature": "Signature",
+            "headline": "Headline",
+            "title": "Title",
+            "photo": "Photo",
+            "example": "Example",
+            "site": "Site"
+        },
+        "photo": "Crucita, Ecuador. 2026"
     }
 }

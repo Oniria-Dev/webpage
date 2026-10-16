@@ -26,7 +26,11 @@ export function ModeToggle({ className }: { className?: string }) {
       role="switch"
       aria-checked={mode === "machine"}
       aria-label="Machine-readable mode"
-      onClick={() => setMode((m) => (m === "human" ? "machine" : "human"))}
+      onClick={() => {
+        setMode((m) => (m === "human" ? "machine" : "human"))
+        // Each view starts at its own top.
+        window.scrollTo({ top: 0, behavior: "instant" })
+      }}
       className={cn(
         "flex cursor-pointer items-center gap-3 rounded-full border border-white/15 bg-[#0a0a0b] px-5 py-2 outline-none focus-visible:ring-2 focus-visible:ring-[#0a0a0b] focus-visible:ring-offset-2",
         className,

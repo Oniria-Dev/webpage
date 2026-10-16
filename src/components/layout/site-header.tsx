@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl"
 import { Link } from "@/src/i18n/navigation"
 import { HalftoneMark } from "@/src/components/ui/halftone-mark"
 import { LOCKUP_MARKUP, LOCKUP_VIEWBOX } from "@/src/components/brand/lockup-markup"
-import { ModeToggle } from "@/src/components/layout/mode-toggle"
 import { MobileMenu, type NavItem } from "@/src/components/layout/mobile-menu"
 
 const links = [
@@ -28,7 +27,6 @@ export function SiteHeader() {
   }))
 
   return (
-    <>
       <header className="absolute inset-x-0 top-0 z-10 flex items-center justify-between p-[clamp(4px,1.5vw,16px)] pr-[clamp(16px,3vw,40px)]">
         <Link href="/" className="block">
           <HalftoneMark
@@ -54,7 +52,5 @@ export function SiteHeader() {
         </nav>
         <MobileMenu items={items} label={t("menu")} className="md:hidden" />
       </header>
-      <ModeToggle className="fixed right-[clamp(16px,3vw,40px)] bottom-[clamp(16px,3vw,40px)] z-50" />
-    </>
   )
 }

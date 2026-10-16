@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+/* Set by the human / machine toggle on <html data-mode>. */
+@custom-variant machine (&:where([data-mode="machine"] *));
 
 /* Palette from brand/Oniria Manual de Marca.md, section 03. */
 @theme {

@@ -5,6 +5,8 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {routing} from '../../i18n/routing';
 import { SiteHeader } from '@/src/components/layout/site-header';
 import Footer from '@/src/components/layout/footer';
+import { MachineView } from '@/src/components/layout/machine-view';
+import { ModeToggle } from '@/src/components/layout/mode-toggle';
 import { Geist, Geist_Mono, Instrument_Serif, Inter_Tight, VT323 } from "next/font/google"
 import { ThemeProvider } from "../../components/theme-provider"
 import { cn } from "../../lib/utils";
@@ -83,9 +85,14 @@ export default async function LocaleLayout({children, params}: Props) {
       <body>
         <ThemeProvider forcedTheme="light">
             <NextIntlClientProvider>
-                <SiteHeader/>
-                {children}
-                <Footer/>
+                {/* The toggle swaps these two by setting <html data-mode>. */}
+                <div className="machine:hidden">
+                    <SiteHeader/>
+                    {children}
+                    <Footer/>
+                </div>
+                <MachineView/>
+                <ModeToggle className="fixed right-[clamp(16px,3vw,40px)] bottom-[clamp(16px,3vw,40px)] z-50"/>
             </NextIntlClientProvider>
         </ThemeProvider>
       </body>
