@@ -1,0 +1,43 @@
+# Integrate <GlassAiButton /> from ThreeUI using its exact source
+
+You are working in an existing application. Implement this component from the exact source linked or included below. Do not recreate it from the preview, screenshot, description, or filename.
+
+Component: `GlassAiButton`
+Runtime: Embedded Three.js r170 + custom GLSL + DOM/CSS
+Source revision: `SHA-256 a484571de316`
+
+Reference brief:
+A translucent glass AI button with a deep-blue galaxy orb, luminous GPT 6 Sol lettering, a traced brain icon, and a particle burst on activation.
+
+## Current configured usage
+
+```tsx
+import { GlassAiButton } from "@designcodeio/threeui";
+import "@designcodeio/threeui/style.css";
+
+export function Scene() {
+  return (
+    <div className="shader-frame">
+      <GlassAiButton />
+    </div>
+  );
+}
+```
+
+## Exact implementation source
+
+Complete registered source bundle: [https://threeui.com/source-code/glass-ai-button.json](https://threeui.com/source-code/glass-ai-button.json)
+
+Required registered files:
+
+- `src/shaders/glass-ai-button/GlassAiButton.tsx` — component · SHA-256 `1a11cd583e856d3be328a0192be4d77184607c64721f3fb646bd6d61436b2104`
+- `src/shaders/glass-ai-button/sources/glass-ai-button.html` — canonical-source · SHA-256 `a484571de316c05ab7fbd2da82da5e028ee1ffe0bd169449fb8a3c7801abd81e`
+- `src/shaders/threeui.css` — shared-style · SHA-256 `efe4447139f1358dd8e9be68edf6fa46cbefbd1de423a4d6c439ca61d2c8eccf`
+
+## Implementation requirements
+
+- Preserve the authored structure, styling, shaders, motion, interactions, responsive behavior, dependencies, and asset paths described by the source.
+- Use the configured `<GlassAiButton />` usage above, including the selected variant and props.
+- Build directly in the destination project. Do not embed the ThreeUI documentation page and do not approximate the result from its rendered appearance.
+- Fetch and read the complete source before editing. If the source cannot be retrieved, stop and report that instead of recreating it.
+- After implementation, verify the rendered result and its interactions in the browser.
