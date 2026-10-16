@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 1000" width="1450" height="1000">
+  <!-- Placeholder cover until Oniric has real screenshots. -->
+  <rect width="1450" height="1000" fill="#0a0a0b"/>
+  <text x="725" y="540" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="150" font-weight="600" letter-spacing="-4" fill="#f5f5f6">Oniric</text>
+  <circle cx="1040" cy="430" r="22" fill="#ED1C24"/>
+</svg>

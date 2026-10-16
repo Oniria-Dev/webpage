@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import heroPhoto from "@/public/images/crucita-hero.webp";
 import { ScrambleTitle } from "@/src/components/scramble-title";
+import { ProductsWheel } from "@/src/components/products-wheel";
 
 
 export async function generateMetadata({
@@ -70,6 +71,7 @@ export default function LandingPage() {
           className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_50%,#0a0a0b_50%)] bg-clip-text text-[clamp(44px,6.4vw,112px)] leading-[0.98] font-bold tracking-normal text-transparent [font-synthesis:weight]"
         />
       </div>
+      <ProductsWheel />
     </main>
   );
 }
