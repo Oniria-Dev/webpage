@@ -10,6 +10,7 @@
         "products": "Productos",
         "services": "Qué hacemos",
         "about": "Nosotros",
+        "philosophy": "Filosofía",
         "menu": "Menú",
         "theme": "Cambiar tema",
         "tagline": "Del sueño al sistema.",
@@ -90,6 +91,11 @@
             "title": "<em>Desde el centro del mundo,</em> para todo el mundo.",
             "body": "La línea que cruza nuestro logotipo es el ecuador: la única que da la vuelta completa al planeta y une ambos hemisferios. Nacimos sobre ella, y por eso trabajamos para cualquier mercado.",
             "link": "Conoce a Oniria"
+        },
+        "Hero": {
+            "line1": "La IA es el océano.",
+            "line2": "Nosotros, el barco.",
+            "title": "La potencia latinoamericana de la tecnología cool y a lo grande."
         }
     },
     "Products": {

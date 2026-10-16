@@ -3,9 +3,9 @@ import type { Metadata, Viewport } from "next";
 import {notFound} from 'next/navigation';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {routing} from '../../i18n/routing';
-import Navbar from '@/src/components/layout/navbar';
+import { SiteHeader } from '@/src/components/layout/site-header';
 import Footer from '@/src/components/layout/footer';
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Instrument_Serif, Inter_Tight, VT323 } from "next/font/google"
 import { ThemeProvider } from "../../components/theme-provider"
 import { cn } from "../../lib/utils";
 
@@ -17,6 +17,28 @@ const fontSans = Geist({
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+})
+
+// Old-terminal face for the MACHINE side of the mode toggle.
+const fontCli = VT323({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-vt323",
+})
+
+// Condensed editorial serif for the nav, in the spirit of locomotive.ca.
+const fontSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument-serif",
+})
+
+// Neutral tight grotesk standing in for the Teenage Engineering bag lettering,
+// whose actual face isn't public.
+const fontGrotesk = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-inter-tight",
 })
 
 type Props = {
@@ -57,12 +79,12 @@ export default async function LocaleLayout({children, params}: Props) {
   }
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth" className={cn("antialiased font-sans", fontSans.variable, fontMono.variable)} suppressHydrationWarning>
+    <html lang={locale} data-scroll-behavior="smooth" className={cn("antialiased font-sans", fontSans.variable, fontMono.variable, fontCli.variable, fontSerif.variable, fontGrotesk.variable)} suppressHydrationWarning>
       <body>
-        <ThemeProvider>
+        <ThemeProvider forcedTheme="light">
             <NextIntlClientProvider>
-                <Navbar/>
-                    {children}
+                <SiteHeader/>
+                {children}
                 <Footer/>
             </NextIntlClientProvider>
         </ThemeProvider>

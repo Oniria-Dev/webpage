@@ -10,10 +10,11 @@
         "products": "Products",
         "services": "What we do",
         "about": "About",
+        "philosophy": "Philosophy",
         "menu": "Menu",
         "theme": "Toggle theme",
         "tagline": "From dream to system.",
-        "signature": "From the center of the world, for the whole world",
+        "signature": "From the center of the world, for the rest of it.",
         "origin": "0° · Quito, Ecuador"
     },
     "NotFound": {
@@ -90,6 +91,11 @@
             "title": "<em>From the center of the world,</em> for the whole world.",
             "body": "The line that crosses our logo is the equator: the only one that goes all the way around the planet and joins both hemispheres. We were born on it, which is why we work for any market.",
             "link": "Meet Oniria"
+        },
+        "Hero": {
+            "line1": "AI is the ocean.",
+            "line2": "We're the boat.",
+            "title": "The Latin American powerhouse for cool and big tech."
         }
     },
     "Products": {

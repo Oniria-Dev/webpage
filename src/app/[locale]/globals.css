@@ -66,6 +66,10 @@
 @theme inline {
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
+    --font-cli: var(--font-vt323), ui-monospace, monospace;
+    --font-editorial: var(--font-instrument-serif), Georgia, serif;
+    --font-grotesk: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
+    --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --color-cobre: var(--dot);
     --color-ring: var(--ring);
     --color-input: var(--input);

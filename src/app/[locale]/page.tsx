@@ -1,15 +1,11 @@
-import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { Link } from "../../i18n/navigation";
-import { Button } from "../../components/ui/button";
-import { Isotipo } from "../../components/brand/logo";
-import { ProductCard } from "../../components/product-card";
-import { Section, em } from "../../components/section";
-import { products } from "../../lib/products";
+import Image from "next/image";
 
-type Item = { title: string; description: string; example?: string };
+import heroPhoto from "@/public/images/crucita-hero.webp";
+import { ScrambleTitle } from "@/src/components/scramble-title";
+
 
 export async function generateMetadata({
   params
@@ -26,86 +22,54 @@ export async function generateMetadata({
   };
 }
 
-
+// The header and mode toggle live in the layout; the header sits over the hero.
 export default function LandingPage() {
-  const t = useTranslations("Home");
-  const nav = useTranslations("Navigation");
+  const t = useTranslations("Home.Hero");
 
   return (
-    <main>
-      {/* Hero: always the Negro field, in both themes */}
-      <section className="dark bg-background text-foreground">
-        <div className="wrap grid items-center gap-12 pt-20 pb-16 md:grid-cols-[1.5fr_1fr] md:pt-32 md:pb-24">
-          <div>
-            <p className="mono-label text-muted-foreground">{t("hero.label")}</p>
-            <h1 className="mt-6 text-[clamp(2.75rem,8vw,6rem)]">{t.rich("hero.title", em)}</h1>
-            <p className="mt-8 max-w-[52ch] text-lg text-muted-foreground">{t("hero.lead")}</p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Button asChild className="h-11 rounded-full px-5 text-sm">
-                <Link href="/products">
-                  {t("hero.products")}
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" className="h-11 rounded-full px-5 text-sm">
-                <Link href="/about">{t("hero.about")}</Link>
-              </Button>
-            </div>
-          </div>
-          <Isotipo aria-hidden className="hidden w-full max-w-[340px] justify-self-end md:block" />
-        </div>
-        {/* The 0° line, the brand's recurring graphic */}
-        <div className="wrap flex items-center gap-4 pb-8">
-          <span className="mono-label">0°</span>
-          <span className="h-0.5 flex-1 bg-foreground" />
-          <span className="mono-label hidden text-muted-foreground sm:inline">{nav("signature")}</span>
-        </div>
-      </section>
-
-      {/* What we do */}
-      <Section id="que-hacemos" index="01" label={t("what.label")} title={t.rich("what.title", em)} intro={t("what.intro")} className="border-t-0">
-        <div className="grid gap-10 md:grid-cols-3">
-          {(t.raw("what.items") as Item[]).map((item) => (
-            <div key={item.title} className="border-t border-foreground pt-5">
-              <h3 className="text-xl">{item.title}</h3>
-              <p className="mt-3 text-muted-foreground">{item.description}</p>
-              <p className="mono-label mt-6 text-muted-foreground">{t("what.example")}</p>
-              <p className="mt-1 font-medium">{item.example}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Products */}
-      <Section index="02" label={t("products.label")} title={t.rich("products.title", em)} intro={t("products.intro")}>
-        <div className="grid gap-12 md:grid-cols-2">
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
-        </div>
-      </Section>
-
-      {/* How we work */}
-      <Section index="03" label={t("how.label")} title={t.rich("how.title", em)} intro={t("how.intro")}>
-        <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {(t.raw("how.steps") as Item[]).map((step, i) => (
-            <li key={step.title} className="border-t border-border pt-5">
-              <p className="mono-label text-muted-foreground">0{i + 1}</p>
-              <h3 className="mt-2 text-xl">{step.title}</h3>
-              <p className="mt-3 text-muted-foreground">{step.description}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      {/* Origin */}
-      <Section index="04" label={t("origin.label")} title={t.rich("origin.title", em)} className="bg-muted">
-        <p className="max-w-[60ch] text-lg text-muted-foreground">{t("origin.body")}</p>
-        <Link href="/about" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70 active:opacity-70">
-          {t("origin.link")}
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-      </Section>
+    <main className="min-h-dvh bg-white">
+      <figure className="relative h-dvh w-full overflow-hidden bg-[#0a0a0b] [container-type:size]">
+          <Image
+            src={heroPhoto}
+            alt="A small boat alone on a glittering sea off Crucita, Ecuador"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          {/* Darkens the top so the white header reads; clear from 80% down. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(10_10_11/0.85)_0%,rgb(10_10_11/0.45)_35%,rgb(10_10_11/0)_80%)]"
+          />
+          <h1 className="font-grotesk absolute inset-0 grid place-content-center px-6 text-center text-[clamp(30px,3vw,44px)] leading-[1.02] font-normal tracking-[-0.035em] text-white">
+            <span>{t("line1")}</span>
+            <span>{t("line2")}</span>
+          </h1>
+          {/* Pinned just under the boat. The photo is object-cover and
+              centred, so its scale is max(width/900, height/506) and a point
+              (x, y) in the 900×506 file sits at 50% + (x - 450, y - 253) × scale. */}
+          <figcaption
+            className="font-editorial absolute -translate-x-full bg-[#ED1C24] px-2.5 py-1 text-[clamp(15px,1.2vw,19px)] leading-tight whitespace-nowrap text-white"
+            style={{
+              // Right edge flush with the boat's stern (x ≈ 646).
+              left: "calc(50cqw + 196 * max(100cqw / 900, 100cqh / 506))",
+              top: "calc(50cqh + 92 * max(100cqw / 900, 100cqh / 506))",
+            }}
+          >
+            Crucita, Ecuador. 2026
+          </figcaption>
+      </figure>
+      {/* Straddles the photo's bottom edge: shifted up by half its own height,
+          and the type is filled with a hard red/black split at that same half,
+          so whatever sits over the photo is red and the rest is black. The
+          half it leaves behind is the gap before what follows. */}
+      <div className="relative z-10 -translate-y-1/2 px-[calc(clamp(4px,1.5vw,16px)+24px)]">
+        <ScrambleTitle
+          text={t("title")}
+          className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_50%,#0a0a0b_50%)] bg-clip-text text-[clamp(44px,6.4vw,112px)] leading-[0.98] font-bold tracking-normal text-transparent [font-synthesis:weight]"
+        />
+      </div>
     </main>
   );
 }
