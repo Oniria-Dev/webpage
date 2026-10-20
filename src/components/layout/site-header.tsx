@@ -12,7 +12,6 @@ const links = [
   { href: "/products", key: "products" },
   // "Qué hacemos¿" (/#que-hacemos) is hidden until the home has that section again.
   { href: "/about", key: "about" },
-  // TODO: no /philosophy page yet.
   { href: "/philosophy", key: "philosophy" },
 ] as const
 

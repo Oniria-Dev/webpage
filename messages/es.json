@@ -95,7 +95,7 @@
         "Hero": {
             "line1": "La IA es el océano.",
             "line2": "Nosotros, el barco.",
-            "title": "La potencia latinoamericana de la tecnología cool y a lo grande."
+            "title": "Software latinoamericano, hecho a lo grande."
         }
     },
     "Products": {
@@ -296,5 +296,45 @@
             "site": "Sitio"
         },
         "photo": "Crucita, Ecuador. 2026"
+    },
+    "Philosophy": {
+        "Metadata": {
+            "title": "Filosofía",
+            "description": "Siete cosas que creemos en Oniria sobre la tecnología, el gusto y la gente."
+        },
+        "label": "Filosofía",
+        "title": "Siete cosas que creemos.",
+        "lead": "No es una lista de valores para colgar en la pared. Es cómo decidimos, cada día, qué construir y qué no.",
+        "items": [
+            {
+                "title": "La IA es el océano. Nosotros, el barco.",
+                "description": "La tecnología es enorme y no es de nadie. Nuestro trabajo es darle rumbo: llevar a tu empresa a donde quiere ir sin que se hunda en el intento."
+            },
+            {
+                "title": "La herramienta cambia; el criterio no.",
+                "description": "Los modelos, los lenguajes y las modas cambian cada año. Lo que se queda es saber qué vale la pena construir."
+            },
+            {
+                "title": "Primero funciona, después se firma.",
+                "description": "Te mostramos el sistema andando antes de pedirte que confíes en nosotros."
+            },
+            {
+                "title": "Pocas cosas, con gusto.",
+                "description": "Preferimos hacer menos y hacerlo bien. Cada línea, palabra y píxel tiene una función."
+            },
+            {
+                "title": "La gente antes que el código.",
+                "description": "El software es solo la forma. Lo que importa son las personas que lo usan y las que lo hacen."
+            },
+            {
+                "title": "Nacimos en el centro del mundo. Construimos para el resto.",
+                "description": "Venimos de la línea 0° y pensamos en cualquier mercado desde el primer día."
+            },
+            {
+                "title": "Ambición sin solemnidad.",
+                "description": "Queremos ser la empresa de software con más gusto del mundo. Lo decimos en serio, sin tomarnos demasiado en serio."
+            }
+        ],
+        "cta": "¿Te suena? Escríbenos."
     }
 }
