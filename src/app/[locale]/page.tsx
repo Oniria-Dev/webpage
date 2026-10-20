@@ -48,14 +48,14 @@ export default function LandingPage() {
             <span>{t("line2")}</span>
           </h1>
           {/* Pinned just under the boat. The photo is object-cover and
-              centred, so its scale is max(width/900, height/506) and a point
-              (x, y) in the 900×506 file sits at 50% + (x - 450, y - 253) × scale. */}
+              centred, so its scale is max(width/1080, height/607) and a point
+              (x, y) in the 1080×607 file sits at 50% + (x - 540, y - 303.5) × scale. */}
           <figcaption
             className="font-editorial absolute -translate-x-full bg-[#ED1C24] px-2.5 py-1 text-[clamp(15px,1.2vw,19px)] leading-tight whitespace-nowrap text-white"
             style={{
-              // Right edge flush with the boat's stern (x ≈ 646).
-              left: "calc(50cqw + 196 * max(100cqw / 900, 100cqh / 506))",
-              top: "calc(50cqh + 92 * max(100cqw / 900, 100cqh / 506))",
+              // Right edge flush with the boat's stern (x ≈ 775).
+              left: "calc(50cqw + 235 * max(100cqw / 1080, 100cqh / 607))",
+              top: "calc(50cqh + 110 * max(100cqw / 1080, 100cqh / 607))",
             }}
           >
             Crucita, Ecuador. 2026
