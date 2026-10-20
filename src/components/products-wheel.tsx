@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
 import { WorksWheel, type WorksWheelItem } from "@/src/components/ui/works-wheel"
 import { products } from "@/src/lib/products"
@@ -8,9 +8,11 @@ import { products } from "@/src/lib/products"
 // TODO: real covers per piece; Oniric has no screenshots yet (cover.svg is a stand-in).
 export function ProductsWheel() {
   const t = useTranslations("Products")
+  // The wheel renders plain <a>s, so the locale has to be in the href.
+  const locale = useLocale()
   const items: WorksWheelItem[] = products.flatMap((p) => {
     const name = t(`items.${p.slug}.name`)
-    const href = `/products/${p.slug}`
+    const href = `/${locale}/products/${p.slug}`
     if (!p.images.length) return [{ title: name, image: `/products/${p.dir}/cover.svg`, href }]
     return p.images.map((img) => ({
       title: `${name} · ${t(`items.${p.slug}.shots.${img}`)}`,

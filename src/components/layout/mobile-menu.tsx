@@ -12,10 +12,13 @@ export type NavItem = { href: string; label: string }
 export function MobileMenu({
   items,
   label,
+  light = true,
   className,
 }: {
   items: NavItem[]
   label: string
+  /** White bars for a dark backdrop; the open sheet is always black. */
+  light?: boolean
   className?: string
 }) {
   const [open, setOpen] = React.useState(false)
@@ -44,13 +47,15 @@ export function MobileMenu({
       >
         <span
           className={cn(
-            "block h-[2px] w-7 bg-white transition-transform duration-200",
+            "block h-[2px] w-7 transition-transform duration-200",
+            light || open ? "bg-white" : "bg-[#0a0a0b]",
             open && "translate-y-[4.5px] rotate-45",
           )}
         />
         <span
           className={cn(
-            "block h-[2px] w-7 bg-white transition-transform duration-200",
+            "block h-[2px] w-7 transition-transform duration-200",
+            light || open ? "bg-white" : "bg-[#0a0a0b]",
             open && "-translate-y-[4.5px] -rotate-45",
           )}
         />

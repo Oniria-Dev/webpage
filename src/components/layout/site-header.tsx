@@ -1,7 +1,9 @@
+"use client"
+
 import { Fragment } from "react"
 import { useTranslations } from "next-intl"
 
-import { Link } from "@/src/i18n/navigation"
+import { Link, usePathname } from "@/src/i18n/navigation"
 import { HalftoneMark } from "@/src/components/ui/halftone-mark"
 import { LOCKUP_MARKUP, LOCKUP_VIEWBOX } from "@/src/components/brand/lockup-markup"
 import { MobileMenu, type NavItem } from "@/src/components/layout/mobile-menu"
@@ -16,6 +18,8 @@ const links = [
 
 export function SiteHeader() {
   const t = useTranslations("Navigation")
+  // Only the home page has a photo behind the header; elsewhere it sits on white.
+  const onPhoto = usePathname() === "/"
   const items: NavItem[] = links.map((link) => ({
     href: link.href,
     label:
@@ -32,11 +36,11 @@ export function SiteHeader() {
           <HalftoneMark
             source={{ kind: "svg", markup: LOCKUP_MARKUP, viewBox: LOCKUP_VIEWBOX }}
             label="Oniria"
-            ink="#ffffff"
+            ink={onPhoto ? "#ffffff" : "#0a0a0b"}
             className="w-[clamp(230px,25vw,420px)]"
           />
         </Link>
-        <nav className="font-editorial hidden items-baseline gap-x-3 text-[clamp(20px,1.8vw,28px)] leading-tight text-white md:flex">
+        <nav className={`font-editorial hidden items-baseline gap-x-3 text-[clamp(20px,1.8vw,28px)] leading-tight md:flex ${onPhoto ? "text-white" : "text-[#0a0a0b]"}`}>
           {items.map((item, i) => (
             <Fragment key={item.href}>
               {i > 0 ? (
@@ -50,7 +54,7 @@ export function SiteHeader() {
             </Fragment>
           ))}
         </nav>
-        <MobileMenu items={items} label={t("menu")} className="md:hidden" />
+        <MobileMenu items={items} label={t("menu")} light={onPhoto} className="md:hidden" />
       </header>
   )
 }
