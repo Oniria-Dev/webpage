@@ -1,53 +1,47 @@
 import { useTranslations } from "next-intl";
-import { Instagram } from "lucide-react";
 import { Link } from "../../i18n/navigation";
 import { Isotipo } from "../brand/logo";
+
+// Same layout as the previous landing's footer, on white, with raw
+// browser-default links: Arial, #0000EE, lowercase (MSCHF / old Google).
+// TODO: interim; the final footer art is being designed separately.
+const linkClass =
+  "font-[Arial,Helvetica,sans-serif] text-[14px] lowercase whitespace-nowrap text-[#0000EE] hover:underline active:text-[#551A8B] max-md:py-2";
 
 function Footer() {
   const t = useTranslations("Navigation");
   return (
-    // Always the Negro field, in both themes.
-    <footer className="dark bg-background text-foreground">
+    <footer className="bg-white text-foreground" style={{ "--dot": "#ED1C24" } as React.CSSProperties}>
       <div className="wrap py-14">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-4">
             <Isotipo aria-hidden className="h-12 w-12" />
-            <div>
-              <p className="text-lg font-medium tracking-tight">{t("tagline")}</p>
-              <p className="mono-label text-muted-foreground">{t("signature")}</p>
-            </div>
+            <p className="mono-label text-muted-foreground">{t("signature")}</p>
           </div>
 
-          <nav className="flex flex-col text-sm md:flex-row md:gap-6">
-            <Link href="/products" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
+          <nav className="flex flex-col text-sm md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-2">
+            <Link href="/products" className={linkClass}>
               {t("products")}
             </Link>
-            <Link href="/#que-hacemos" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
-              {t("services")}
-            </Link>
-            <Link href="/about" className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3">
+            <Link href="/about" className={linkClass}>
               {t("about")}
             </Link>
-            <a
-              href="mailto:info@oniriasolutions.com"
-              className="text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3"
-            >
+            <a href="mailto:info@oniriasolutions.com" className={linkClass}>
               info@oniriasolutions.com
             </a>
             <a
               href="https://www.instagram.com/oniriasolutions"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground active:text-foreground transition-colors max-md:py-3"
+              className={linkClass}
             >
-              <Instagram className="w-4 h-4" />
-              @oniriasolutions
+              instagram
             </a>
           </nav>
         </div>
 
         <div className="mono-label mt-12 flex flex-col gap-2 border-t border-border pt-6 text-muted-foreground sm:flex-row sm:justify-between">
-          <span>© {new Date().getFullYear()} ONIRIASOLUTIONS S.A.S.</span>
+          <span>© {new Date().getFullYear()} ONIRIASOLUTIONS</span>
           <span>{t("origin")}</span>
         </div>
       </div>

@@ -8,6 +8,7 @@ const ROUTES: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/products/argos-suite", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/oniric",      priority: 0.8, changeFrequency: "monthly" },
   { path: "/about",                priority: 0.7, changeFrequency: "monthly" },
+  { path: "/philosophy",           priority: 0.6, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
