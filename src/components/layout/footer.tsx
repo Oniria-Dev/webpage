@@ -23,9 +23,6 @@ function Footer() {
             <Link href="/products" className={linkClass}>
               {t("products")}
             </Link>
-            <Link href="/#que-hacemos" className={linkClass}>
-              {t("services")}
-            </Link>
             <Link href="/about" className={linkClass}>
               {t("about")}
             </Link>

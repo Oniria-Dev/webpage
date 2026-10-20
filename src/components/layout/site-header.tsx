@@ -10,7 +10,7 @@ import { MobileMenu, type NavItem } from "@/src/components/layout/mobile-menu"
 
 const links = [
   { href: "/products", key: "products" },
-  { href: "/#que-hacemos", key: "services" },
+  // "Qué hacemos¿" (/#que-hacemos) is hidden until the home has that section again.
   { href: "/about", key: "about" },
   // TODO: no /philosophy page yet.
   { href: "/philosophy", key: "philosophy" },
@@ -22,12 +22,7 @@ export function SiteHeader() {
   const onPhoto = usePathname() === "/"
   const items: NavItem[] = links.map((link) => ({
     href: link.href,
-    label:
-      link.key === "philosophy"
-        ? `“${t(link.key)}”`
-        : link.key === "services"
-          ? `${t(link.key)}¿`
-          : t(link.key),
+    label: link.key === "philosophy" ? `“${t(link.key)}”` : t(link.key),
   }))
 
   return (

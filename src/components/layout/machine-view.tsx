@@ -66,7 +66,6 @@ export function MachineView() {
   const links = [
     { href: "/", label: m("home") },
     { href: "/products", label: nav("products") },
-    { href: "/#que-hacemos", label: nav("services") },
     { href: "/about", label: nav("about") },
     { href: "/philosophy", label: nav("philosophy") },
   ]
