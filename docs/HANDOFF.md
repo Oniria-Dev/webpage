@@ -40,6 +40,7 @@ pnpm install
 pnpm dev          # http://localhost:3000/es  y  /en
 pnpm typecheck
 pnpm lint
+pnpm check:messages   # es.json y en.json con las mismas claves
 ```
 
 Si `typecheck` falla por rutas viejas en `.next/types`, borra `.next/types` (es caché).
@@ -69,6 +70,7 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El footer reserva 96px abajo para el toggle.
   - El corte rojo/negro del título cae después de la primera línea (`1lh`), no a la mitad de la caja; en el móvil la primera línea es "Software".
   - El menú móvil cerrado es `inert` e `invisible`.
+- **#12 Paridad es/en (hecho):** `pnpm check:messages` falla si una clave existe en un solo idioma y dice cuál y en qué archivo falta. Se corre junto a `typecheck` y `lint`.
 
 ### Lo que hay en la home (de arriba a abajo)
 
