@@ -50,25 +50,29 @@ export default function LandingPage() {
           {/* Pinned just under the boat. The photo is object-cover and
               centred, so its scale is max(width/1080, height/607) and a point
               (x, y) in the 1080×607 file sits at 50% + (x - 540, y - 303.5) × scale. */}
+          {/* On a phone the stern is off-screen, so the label stops 16px short
+              of the edge; 24px there keeps white on #ED1C24 legible (3:1, large text). */}
           <figcaption
-            className="font-editorial absolute -translate-x-full bg-[#ED1C24] px-2.5 py-1 text-[clamp(15px,1.2vw,19px)] leading-tight whitespace-nowrap text-white"
+            className="font-editorial absolute -translate-x-full bg-[#ED1C24] px-2.5 py-1 text-[24px] leading-tight whitespace-nowrap text-white md:text-[clamp(15px,1.2vw,19px)]"
             style={{
               // Right edge flush with the boat's stern (x ≈ 775).
-              left: "calc(50cqw + 235 * max(100cqw / 1080, 100cqh / 607))",
+              left: "min(calc(50cqw + 235 * max(100cqw / 1080, 100cqh / 607)), calc(100cqw - 16px))",
               top: "calc(50cqh + 110 * max(100cqw / 1080, 100cqh / 607))",
             }}
           >
             Crucita, Ecuador. 2026
           </figcaption>
       </figure>
-      {/* Straddles the photo's bottom edge: shifted up by half its own height,
-          and the type is filled with a hard red/black split at that same half,
-          so whatever sits over the photo is red and the rest is black. The
-          half it leaves behind is the gap before what follows. */}
-      <div className="relative z-10 -translate-y-1/2 px-[calc(clamp(4px,1.5vw,16px)+24px)]">
+      {/* Straddles the photo's bottom edge: shifted up by one line, and the
+          type is filled with a hard red/black split after that same line, so
+          the first line sits red over the photo and the rest is black. Splitting
+          on a line (not at half the box) keeps a three-line phone title from
+          cutting through its letters. The line it leaves behind is the gap
+          before what follows. */}
+      <div className="relative z-10 -translate-y-[1lh] px-[calc(clamp(4px,1.5vw,16px)+24px)] text-[clamp(44px,6.4vw,112px)] leading-[0.98]">
         <ScrambleTitle
           text={t("title")}
-          className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_50%,#0a0a0b_50%)] bg-clip-text text-[clamp(44px,6.4vw,112px)] leading-[0.98] font-bold tracking-normal text-transparent [font-synthesis:weight]"
+          className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_1lh,#0a0a0b_1lh)] bg-clip-text font-bold tracking-normal text-transparent [font-synthesis:weight]"
         />
       </div>
       <ProductsWheel />

@@ -11,8 +11,9 @@ const linkClass =
 function Footer() {
   const t = useTranslations("Navigation");
   return (
-    <footer className="bg-white text-foreground" style={{ "--dot": "#ED1C24" } as React.CSSProperties}>
-      <div className="wrap py-14">
+    <footer className="bg-white text-foreground">
+      {/* Bottom padding keeps the fixed human/machine toggle clear of the last line. */}
+      <div className="wrap pt-14 pb-24">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-4">
             <Isotipo aria-hidden className="h-12 w-12" />

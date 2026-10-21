@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 // Artwork copied from brand/Oniria Manual de Marca.html; do not redraw or retype the wordmark.
-// currentColor draws the mark, --dot (globals.css) colours the idea: Cobre on light, Cobre claro on dark.
+// currentColor draws the mark, --dot (globals.css) colours the idea: the brand red.
 type Props = React.SVGProps<SVGSVGElement>;
 
 export function Isotipo(props: Props) {

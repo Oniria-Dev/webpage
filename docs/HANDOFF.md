@@ -58,6 +58,18 @@ bcf12d9 (origin/main) Merge pull request #7 ...
 También existe la rama `backup/local-wip-2026-10-15`, con cambios viejos que había sin
 commitear antes de sincronizar con GitHub. No se usa; solo es respaldo.
 
+### Rework en curso: spec #10, tickets #11–#20
+
+El rework vive en GitHub Issues: el spec es el #10 y los tickets son sus sub-issues, con
+dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno entre uno y otro.
+
+- **#11 Bugs de la auditoría (hecho):**
+  - Cédula del hero: en el móvil se queda a 16px del borde y va a 24px, para que el blanco sobre `#ED1C24` pase como texto grande.
+  - `--dot` pasa a rojo `#ED1C24` en claro y oscuro; ya no hay cobre.
+  - El footer reserva 96px abajo para el toggle.
+  - El corte rojo/negro del título cae después de la primera línea (`1lh`), no a la mitad de la caja; en el móvil la primera línea es "Software".
+  - El menú móvil cerrado es `inert` e `invisible`.
+
 ### Lo que hay en la home (de arriba a abajo)
 
 | Pieza | Dónde | Detalle |
@@ -106,7 +118,7 @@ commitear antes de sincronizar con GitHub. No se usa; solo es respaldo.
    condensada con bold real.
 7. **Portadas reales** para cada producto y **más piezas** para la rueda (ideal 8 o más).
    Oniric no tiene imágenes.
-8. **El toggle tapa** "0° · Quito, Ecuador" en el footer en pantallas medianas.
+8. ~~**El toggle tapa** "0° · Quito, Ecuador" en el footer~~ (arreglado en #11).
 9. **La foto del hero mide 1067px:** se ve suave en pantallas grandes. Pedir el original en alta resolución.
 10. **Ideas aún no implementadas** (están en `brainstorm.md`):
     - El clip del fundador editado con Higgsfield ("the future of video creation", en referencia a Oniric).

@@ -64,16 +64,16 @@ export function MobileMenu({
       <nav
         id="mobile-menu"
         aria-label={label}
+        inert={!open}
         className={cn(
-          "font-editorial fixed inset-0 z-50 flex flex-col justify-center gap-2 bg-[#0a0a0b] px-8 text-[44px] leading-[1.05] text-white transition-opacity duration-200",
-          open ? "opacity-100" : "pointer-events-none opacity-0",
+          "font-editorial fixed inset-0 z-50 flex flex-col justify-center gap-2 bg-[#0a0a0b] px-8 text-[44px] leading-[1.05] text-white transition-[opacity,visibility] duration-200",
+          open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
             className="active:opacity-55"
           >
