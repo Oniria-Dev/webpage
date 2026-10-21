@@ -19,14 +19,13 @@ export async function generateMetadata({
   };
 }
 
-// A short numbered manifesto. The header is absolute, so the top padding
-// clears the lockup.
+// A short numbered manifesto.
 export default function PhilosophyPage() {
   const t = useTranslations("Philosophy");
   const items = t.raw("items") as Item[];
 
   return (
-    <main className="bg-white px-[calc(clamp(4px,1.5vw,16px)+24px)] pt-[clamp(140px,14vw,240px)] pb-[clamp(80px,10vw,160px)] text-[#0a0a0b]">
+    <main className="bg-white px-[calc(clamp(4px,1.5vw,16px)+24px)] pt-[clamp(32px,5vw,80px)] pb-[clamp(80px,10vw,160px)] text-[#0a0a0b]">
       <p className="mono-label text-muted-foreground">{t("label")}</p>
       <h1 className="font-editorial mt-4 text-[clamp(44px,6.4vw,112px)] leading-[0.98]">{t("title")}</h1>
       <p className="font-grotesk mt-8 max-w-[52ch] text-[clamp(18px,1.5vw,22px)] leading-snug text-muted-foreground">

@@ -25,7 +25,7 @@ export function SiteHeader() {
   }))
 
   return (
-      <header className="absolute inset-x-0 top-0 z-10 flex items-center justify-between p-[clamp(4px,1.5vw,16px)] pr-[clamp(16px,3vw,40px)]">
+      <header className={`${onPhoto ? "absolute inset-x-0 top-0" : "relative"} z-10 flex items-center justify-between p-[clamp(4px,1.5vw,16px)] pr-[clamp(16px,3vw,40px)]`}>
         <Link href="/" className="block">
           <HalftoneMark
             source={{ kind: "svg", markup: LOCKUP_MARKUP, viewBox: LOCKUP_VIEWBOX }}
