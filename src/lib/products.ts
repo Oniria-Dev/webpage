@@ -4,7 +4,7 @@ export const products = [
     slug: "argos-suite",
     dir: "argos",
     images: ["panel", "guarderia", "veterinaria", "finanzas"],
-    url: undefined,
+    url: "https://argos.oniriasolutions.com",
   },
   {
     slug: "oniric",
