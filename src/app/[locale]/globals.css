@@ -65,10 +65,9 @@
 }
 
 @theme inline {
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --font-sans: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
     --font-cli: var(--font-vt323), ui-monospace, monospace;
-    --font-editorial: var(--font-instrument-serif), Georgia, serif;
+    --font-editorial: var(--font-imbue), Georgia, serif;
     --font-grotesk: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
     --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --color-ring: var(--ring);
@@ -105,13 +104,11 @@
   padding-inline: clamp(16px, 4vw, 40px);
 }
 
-/* Geist Mono labels and the 0° signature. */
+/* Small labels and the 0° signature, in the text face. Interim: each page
+   drops them in its own rework ticket. */
 @utility mono-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1.6;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 @layer base {

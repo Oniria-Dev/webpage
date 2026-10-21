@@ -72,7 +72,7 @@ export default function LandingPage() {
       <div className="relative z-10 -translate-y-[1lh] px-[calc(clamp(4px,1.5vw,16px)+24px)] text-[clamp(44px,6.4vw,112px)] leading-[0.98]">
         <ScrambleTitle
           text={t("title")}
-          className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_1lh,#0a0a0b_1lh)] bg-clip-text font-bold tracking-normal text-transparent [font-synthesis:weight]"
+          className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_1lh,#0a0a0b_1lh)] bg-clip-text font-bold tracking-normal text-transparent"
         />
       </div>
       <ProductsWheel />

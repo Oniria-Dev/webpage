@@ -27,7 +27,7 @@ export default function PhilosophyPage() {
   return (
     <main className="bg-white px-[calc(clamp(4px,1.5vw,16px)+24px)] pt-[clamp(32px,5vw,80px)] pb-[clamp(80px,10vw,160px)] text-[#0a0a0b]">
       <p className="mono-label text-muted-foreground">{t("label")}</p>
-      <h1 className="font-editorial mt-4 text-[clamp(44px,6.4vw,112px)] leading-[0.98]">{t("title")}</h1>
+      <h1 className="font-editorial mt-4 font-bold text-[clamp(44px,6.4vw,112px)] leading-[0.98]">{t("title")}</h1>
       <p className="font-grotesk mt-8 max-w-[52ch] text-[clamp(18px,1.5vw,22px)] leading-snug text-muted-foreground">
         {t("lead")}
       </p>
@@ -38,7 +38,7 @@ export default function PhilosophyPage() {
             key={item.title}
             className="grid gap-x-8 gap-y-3 border-t border-[#0a0a0b] py-[clamp(24px,3vw,40px)] md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
           >
-            <h2 className="font-editorial flex gap-4 text-[clamp(28px,3vw,48px)] leading-[1.02]">
+            <h2 className="font-editorial flex gap-4 font-bold text-[clamp(28px,3vw,48px)] leading-[1.02]">
               <span className="font-grotesk shrink-0 pt-[0.35em] text-[clamp(13px,1vw,15px)] tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>

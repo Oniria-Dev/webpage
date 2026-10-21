@@ -7,19 +7,9 @@ import { SiteHeader } from '@/src/components/layout/site-header';
 import Footer from '@/src/components/layout/footer';
 import { MachineView } from '@/src/components/layout/machine-view';
 import { ModeToggle } from '@/src/components/layout/mode-toggle';
-import { Geist, Geist_Mono, Instrument_Serif, Inter_Tight, VT323 } from "next/font/google"
+import { Imbue, Inter_Tight, VT323 } from "next/font/google"
 import { ThemeProvider } from "../../components/theme-provider"
 import { cn } from "../../lib/utils";
-
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-})
 
 // Old-terminal face for the MACHINE side of the mode toggle.
 const fontCli = VT323({
@@ -28,15 +18,16 @@ const fontCli = VT323({
   variable: "--font-vt323",
 })
 
-// Condensed editorial serif for the nav, in the spirit of locomotive.ca.
-const fontSerif = Instrument_Serif({
+// Condensed display serif with a real bold: 700 for titles, 400 for display
+// text. Variable on weight and optical size, so big sizes draw the display cut.
+const fontSerif = Imbue({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
+  axes: ["opsz"],
+  variable: "--font-imbue",
 })
 
-// Neutral tight grotesk standing in for the Teenage Engineering bag lettering,
-// whose actual face isn't public.
+// The site's text face. Neutral tight grotesk standing in for the Teenage
+// Engineering bag lettering, whose actual face isn't public.
 const fontGrotesk = Inter_Tight({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -81,7 +72,7 @@ export default async function LocaleLayout({children, params}: Props) {
   }
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth" className={cn("antialiased font-sans", fontSans.variable, fontMono.variable, fontCli.variable, fontSerif.variable, fontGrotesk.variable)} suppressHydrationWarning>
+    <html lang={locale} data-scroll-behavior="smooth" className={cn("antialiased font-sans", fontCli.variable, fontSerif.variable, fontGrotesk.variable)} suppressHydrationWarning>
       <body>
         <ThemeProvider forcedTheme="light">
             <NextIntlClientProvider>

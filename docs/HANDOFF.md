@@ -44,6 +44,7 @@ pnpm check:messages   # es.json y en.json con las mismas claves
 ```
 
 Si `typecheck` falla por rutas viejas en `.next/types`, borra `.next/types` (es caché).
+Si el navegador sigue mostrando CSS o fuentes viejas después de editar `globals.css`, para `pnpm dev`, borra `.next` (caché de Turbopack) y arráncalo de nuevo.
 
 ## 4. Estado actual (commits locales en `main`, sin push)
 
@@ -71,6 +72,7 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El corte rojo/negro del título cae después de la primera línea (`1lh`), no a la mitad de la caja; en el móvil la primera línea es "Software".
   - El menú móvil cerrado es `inert` e `invisible`.
 - **#12 Paridad es/en (hecho):** `pnpm check:messages` falla si una clave existe en un solo idioma y dice cuál y en qué archivo falta. Se corre junto a `typecheck` y `lint`.
+- **#13 Tipografía (hecho):** Imbue + Inter Tight (ver "Piezas técnicas reutilizables"). Los títulos de Filosofía pasan a Imbue 700.
 
 ### Lo que hay en la home (de arriba a abajo)
 
@@ -93,11 +95,12 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   integrado tal cual, salvo un fix de lint).
 - `src/components/brand/lockup-markup.ts`: el lockup como SVG plano. Se **generó** desde
   `logo.tsx`; no redibujar el logo (regla del manual de marca).
-- Fuentes (en `src/app/[locale]/layout.tsx` + `globals.css`):
-  - `font-editorial`: Instrument Serif.
-  - `font-grotesk`: Inter Tight, como sustituto de la letra de la mochila de Teenage Engineering, cuya fuente real no es pública.
-  - `font-cli`: VT323.
-  - `font-helvetica`.
+- Fuentes (en `src/app/[locale]/layout.tsx` + `globals.css`), desde #13:
+  - `font-editorial`: **Imbue** (variable en peso y tamaño óptico). 700 en títulos, 400 en texto display. Sin negrita sintética.
+  - `font-sans` / `font-grotesk`: **Inter Tight**, la letra de texto por defecto. Sustituye a la letra de la mochila de Teenage Engineering, cuya fuente real no es pública.
+  - `font-cli`: VT323, solo en el toggle y el modo machine.
+  - `font-helvetica`: solo en el toggle. Arial solo en los links del footer.
+  - Geist y Geist Mono salieron. `mono-label` es ahora texto normal a 13px, provisional hasta que cada página la quite.
 - El tema está forzado en claro (`forcedTheme="light"`).
 - Textos en `messages/{es,en}.json`, bajo `Home.Hero.*` y `Machine.*`.
 - `.claude/skills/`: skills de taste-skill (`npx skills add Leonxlnx/taste-skill`). ESLint ignora `.claude/`.
@@ -112,12 +115,10 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
    - `/products` y `/about` son las páginas viejas, y ahí el header blanco **no se ve**.
 3. **Jerarquía:** el h1 del hero es pequeño y el título de abajo es más grande, así que no queda
    claro cuál es el mensaje principal. Además, el h1 tapa el barco.
-4. **Sistema tipográfico:** hay unas 7 familias en uso. Hay que definir roles con un máximo de 3,
-   más las dos del toggle.
+4. ~~**Sistema tipográfico**~~ (resuelto en #13).
 5. **Racionar el rojo:** hoy está en la bolita, el toggle, la caja del pie de foto, el título y los
    puntos al empujarlos.
-6. **Negrita falsa:** Instrument Serif solo tiene peso 400. Si se quiere grueso, buscar una serif
-   condensada con bold real.
+6. ~~**Negrita falsa**~~ (resuelto en #13 con Imbue).
 7. **Portadas reales** para cada producto y **más piezas** para la rueda (ideal 8 o más).
    Oniric no tiene imágenes.
 8. ~~**El toggle tapa** "0° · Quito, Ecuador" en el footer~~ (arreglado en #11).
