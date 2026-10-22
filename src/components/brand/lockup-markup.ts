@@ -10,6 +10,18 @@ export const ISOTIPO_VIEWBOX = [0, 15, 100, 76] as const
 export const ISOTIPO_MARKUP =
   '<g transform="translate(0 -3.88)"><path d="M84 56A34 34 0 0 1 16 56" fill="none" stroke="#000" stroke-width="7.5"/><clipPath id="c"><rect x="0" y="56" width="100" height="60"/></clipPath><path clip-path="url(#c)" d="M50 25.45 L76.46 40.73 L76.46 71.27 L50 86.55 L23.54 71.28 L23.54 40.72Z M63.23 33.09 L76.46 56 L63.23 78.91 L36.77 78.91 L23.54 56 L36.77 33.09Z M69.84 44.54 L69.84 67.46 L50 78.91 L30.16 67.46 L30.16 44.54 L50 33.09Z M69.84 56 L59.92 73.18 L40.08 73.18 L30.16 56 L40.08 38.82 L59.92 38.82Z" fill="none" stroke="#000" stroke-width="2.4" stroke-linejoin="round"/><path d="M2 56H98" stroke="#000" stroke-width="2.8"/><circle cx="17.16" cy="47.2" r="1.23" fill="#000"/><circle cx="20.56" cy="39" r="1.36" fill="#000"/><circle cx="25.96" cy="31.96" r="1.49" fill="#000"/><circle cx="33" cy="26.56" r="1.62" fill="#000"/><circle cx="41.2" cy="23.16" r="1.75" fill="#000"/><circle cx="50" cy="22" r="1.88" fill="#000"/><circle cx="79.44" cy="39" r="2.4" fill="#000"/><circle cx="82.84" cy="47.2" r="2.53" fill="#000"/><circle cx="69.76" cy="28.33" r="7.5" fill="#f00"/></g>'
 
+// The isotipo's four parts as zones for HalftoneMark's `regions`, in its own
+// coordinates and in the order of About.concept.parts: the net, the 0° line,
+// the trail of dots and the idea. Generous shapes are fine: only dots that
+// print the logo get a zone.
+const zone = (shapes: string) => '<g transform="translate(0 -3.88)">' + shapes + "</g>"
+export const ISOTIPO_REGIONS = [
+  zone('<rect x="0" y="57.4" width="100" height="40"/>'),
+  zone('<rect x="0" y="54.4" width="100" height="3"/>'),
+  zone('<circle cx="17.16" cy="47.2" r="4.23"/><circle cx="20.56" cy="39" r="4.36"/><circle cx="25.96" cy="31.96" r="4.49"/><circle cx="33" cy="26.56" r="4.62"/><circle cx="41.2" cy="23.16" r="4.75"/><circle cx="50" cy="22" r="4.88"/><circle cx="79.44" cy="39" r="5.4"/><circle cx="82.84" cy="47.2" r="5.53"/>'),
+  zone('<circle cx="69.76" cy="28.33" r="9.5"/>'),
+] as const
+
 export const LOCKUP_MARKUP =
   ISOTIPO_MARKUP +
   '<g transform="translate(124 19) scale(0.97)"><g transform="translate(1.25 50.46)">' +
