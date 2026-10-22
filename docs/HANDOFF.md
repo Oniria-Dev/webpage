@@ -90,6 +90,11 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El menú recupera "¿Qué hacemos?" / "What we do?" (`Navigation.services`).
   - **Entrada:** `src/components/reveal-on-scroll.tsx`. Se pone una vez en la página y anima todo elemento con `data-reveal` que empiece bajo el pliegue: sube 24px con opacidad, una vez, con 75ms entre los que entran juntos. Solo el script oculta cosas, así que sin JS todo se ve. Con reduced-motion no se desplaza. No se pone `data-reveal` sobre un enlace o botón con su propia transición; se envuelve.
   - El footer pierde su línea fina.
+- **#15 Filosofía (falta el visto bueno del dueño):**
+  - Las 7 creencias van en Imbue 400 a `clamp(34px,6.4vw,112px)`, en 8 de 12 columnas, con la explicación al lado en Inter Tight, en negro y a 18–22px. En el móvil la explicación va debajo.
+  - No hay números, líneas ni etiqueta; el espacio separa una de otra. Es un `ol` con `role="list"` para que Safari lo siga leyendo como lista.
+  - La primera abre con un recorte del barco (`crucita.webp`, 21/9 en el escritorio y 4/3 en el móvil) y la cédula "Crucita, Ecuador. 2026".
+  - El lead va en negro y el CTA de correo se mantiene. Todo usa la animación de entrada.
 
 ### Lo que hay en la home (de arriba a abajo)
 
