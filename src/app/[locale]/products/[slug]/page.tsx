@@ -5,15 +5,13 @@ import { Metadata } from "next";
 import { Cedula } from "../../../../components/cedula";
 import { TypeCover } from "../../../../components/product-room";
 import { RevealOnScroll } from "../../../../components/reveal-on-scroll";
-import { Section } from "../../../../components/section";
+import { Section, plain } from "../../../../components/section";
 import { products } from "../../../../lib/products";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 type Feature = { title: string; description: string };
 
 const gutter = "px-[calc(clamp(4px,1.5vw,16px)+24px)]";
-// Section titles here drop the grey <em>: the idea and the result in one ink.
-const plain = { em: (chunks: React.ReactNode) => chunks };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;

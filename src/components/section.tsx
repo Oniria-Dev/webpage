@@ -2,6 +2,8 @@ import { cn } from "../lib/utils";
 
 // For t.rich(): titles mark the idea with <em>, rendered grey by globals.css.
 export const em = { em: (chunks: React.ReactNode) => <em>{chunks}</em> };
+// For t.rich() in the new pages: the idea and the result in one ink.
+export const plain = { em: (chunks: React.ReactNode) => chunks };
 
 type Props = {
   id?: string;
@@ -19,7 +21,7 @@ export function Section({ id, title, intro, className, children }: Props) {
       id={id}
       className={cn("scroll-mt-20 px-[calc(clamp(4px,1.5vw,16px)+24px)] py-[clamp(60px,7.5vw,110px)]", className)}
     >
-      <h2 data-reveal className="font-editorial text-[clamp(40px,5vw,88px)] leading-[0.98] font-bold tracking-normal">
+      <h2 data-reveal className="font-editorial text-[clamp(34px,5vw,88px)] leading-[0.98] font-bold tracking-normal">
         {title}
       </h2>
       {intro && <p data-reveal className="mt-6 max-w-[60ch] text-[clamp(18px,1.5vw,22px)] leading-snug">{intro}</p>}
