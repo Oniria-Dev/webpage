@@ -72,6 +72,10 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El corte rojo/negro del título cae después de la primera línea (`1lh`), no a la mitad de la caja; en el móvil la primera línea es "Software".
   - El menú móvil cerrado es `inert` e `invisible`.
 - **#12 Paridad es/en (hecho):** `pnpm check:messages` falla si una clave existe en un solo idioma y dice cuál y en qué archivo falta. Se corre junto a `typecheck` y `lint`.
+- **#17 Hero y Cédula (hecho):**
+  - El h1 va en Imbue 700 abajo a la izquierda, sobre el agua y con el margen del logo, a `min(9vw, 14cqh)`; el tope por altura evita que toque el barco en pantallas anchas y bajas. En el móvil sube por encima del toggle.
+  - Se agregó un degradado oscuro abajo, como el de arriba.
+  - `src/components/cedula.tsx` es la cédula roja compartida: una línea (`children`) o tres (`name` en negrita, `medium`, `origin`). Blanco sobre `#ED1C24` da 4.4:1, así que el texto va a 24px, o a 18.5px si es negrita. El hero ya la usa.
 - **#13 Tipografía (hecho):** Imbue + Inter Tight (ver "Piezas técnicas reutilizables"). Los títulos de Filosofía pasan a Imbue 700.
 
 ### Lo que hay en la home (de arriba a abajo)
@@ -113,8 +117,7 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
    - "Filosofía" apunta a `/philosophy`, que no existe.
    - "Qué hacemos¿" apunta a `/#que-hacemos`, que ya no existe.
    - `/products` y `/about` son las páginas viejas, y ahí el header blanco **no se ve**.
-3. **Jerarquía:** el h1 del hero es pequeño y el título de abajo es más grande, así que no queda
-   claro cuál es el mensaje principal. Además, el h1 tapa el barco.
+3. ~~**Jerarquía** del hero~~ (resuelto en #17).
 4. ~~**Sistema tipográfico**~~ (resuelto en #13).
 5. **Racionar el rojo:** hoy está en la bolita, el toggle, la caja del pie de foto, el título y los
    puntos al empujarlos.

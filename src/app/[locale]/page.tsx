@@ -6,6 +6,7 @@ import Image from "next/image";
 import heroPhoto from "@/public/images/crucita-hero.webp";
 import { ScrambleTitle } from "@/src/components/scramble-title";
 import { ProductsWheel } from "@/src/components/products-wheel";
+import { Cedula } from "@/src/components/cedula";
 
 
 export async function generateMetadata({
@@ -38,22 +39,28 @@ export default function LandingPage() {
             sizes="100vw"
             className="object-cover"
           />
-          {/* Darkens the top so the white header reads; clear from 80% down. */}
+          {/* Darkens the top so the white header reads and the bottom so the
+              h1 reads over the glitter; the boat in between stays clear. */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(10_10_11/0.85)_0%,rgb(10_10_11/0.45)_35%,rgb(10_10_11/0)_80%)]"
+            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(10_10_11/0.85)_0%,rgb(10_10_11/0.45)_35%,rgb(10_10_11/0)_62%,rgb(10_10_11/0.7)_100%)]"
           />
-          <h1 className="font-grotesk absolute inset-0 grid place-content-center px-6 text-center text-[clamp(30px,3vw,44px)] leading-[1.02] font-normal tracking-[-0.035em] text-white">
-            <span>{t("line1")}</span>
-            <span>{t("line2")}</span>
+          {/* Bottom-left on the water, on the logo's left edge. Capped by the
+              photo's height too, so on wide, short screens it stays below the
+              boat. From md up its bottom margin matches the left one (the mode
+              toggle is far to its right); on a phone it rises above the toggle. */}
+          <h1 className="font-editorial absolute bottom-24 left-0 px-[calc(clamp(4px,1.5vw,16px)+24px)] text-[clamp(44px,min(9vw,14cqh),150px)] leading-[0.95] font-bold tracking-normal text-white md:bottom-[calc(clamp(4px,1.5vw,16px)+24px)]">
+            <span className="block">{t("line1")}</span>
+            <span className="block">{t("line2")}</span>
           </h1>
           {/* Pinned just under the boat. The photo is object-cover and
               centred, so its scale is max(width/1080, height/607) and a point
               (x, y) in the 1080×607 file sits at 50% + (x - 540, y - 303.5) × scale. */}
           {/* On a phone the stern is off-screen, so the label stops 16px short
               of the edge; 24px there keeps white on #ED1C24 legible (3:1, large text). */}
-          <figcaption
-            className="font-editorial absolute -translate-x-full bg-[#ED1C24] px-2.5 py-1 text-[24px] leading-tight whitespace-nowrap text-white md:text-[clamp(15px,1.2vw,19px)]"
+          <Cedula
+            as="figcaption"
+            className="absolute -translate-x-full text-[24px] whitespace-nowrap md:text-[clamp(15px,1.2vw,19px)]"
             style={{
               // Right edge flush with the boat's stern (x ≈ 775).
               left: "min(calc(50cqw + 235 * max(100cqw / 1080, 100cqh / 607)), calc(100cqw - 16px))",
@@ -61,7 +68,7 @@ export default function LandingPage() {
             }}
           >
             Crucita, Ecuador. 2026
-          </figcaption>
+          </Cedula>
       </figure>
       {/* Straddles the photo's bottom edge: shifted up by one line, and the
           type is filled with a hard red/black split after that same line, so
