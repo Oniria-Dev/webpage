@@ -111,15 +111,10 @@
         "intro": "Each product solves one concrete operations problem. We build them with the same method we use with our clients.",
         "view": "View product",
         "visit": "Visit {name}",
-        "back": "All products",
-        "forWhom": "Who it is for",
-        "solves": "What it solves",
         "includes": {
-            "label": "What it includes",
             "title": "<em>From the screen</em> to daily work."
         },
         "screens": {
-            "label": "How it looks",
             "title": "<em>One idea</em> per screen."
         },
         "items": {

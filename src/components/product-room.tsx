@@ -7,7 +7,7 @@ import { products, type Product } from "@/src/lib/products"
 
 // A product with no screenshots yet shows its name as the piece: Imbue, huge,
 // on black, with the logo's red dot.
-function TypeCover({ name }: { name: string }) {
+export function TypeCover({ name }: { name: string }) {
   return (
     <div className="grid aspect-[16/10] w-full place-items-center bg-[#0a0a0b] text-white">
       <span className="font-editorial relative text-[clamp(96px,22vw,360px)] leading-none font-bold">

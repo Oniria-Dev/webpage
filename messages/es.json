@@ -111,15 +111,10 @@
         "intro": "Cada producto resuelve un problema concreto de operación. Los construimos con el mismo método que usamos con nuestros clientes.",
         "view": "Ver producto",
         "visit": "Visitar {name}",
-        "back": "Todos los productos",
-        "forWhom": "Para quién",
-        "solves": "Qué resuelve",
         "includes": {
-            "label": "Qué incluye",
             "title": "<em>De la pantalla</em> al trabajo diario."
         },
         "screens": {
-            "label": "Así se ve",
             "title": "<em>Una idea</em> por pantalla."
         },
         "items": {
