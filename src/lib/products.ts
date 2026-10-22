@@ -11,7 +11,7 @@ export const products = [
   {
     slug: "oniric",
     dir: "oniric",
-    images: [],
+    images: ["crear", "inicio", "director", "calendario"],
     year: 2026,
     url: "https://oniric.oniriasolutions.com",
   },

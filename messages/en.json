@@ -98,7 +98,7 @@
             "title": "Latin American software, built big."
         },
         "contact": {
-            "title": "[COPY: contact close, ~6 words]"
+            "title": "Let's build something big."
         }
     },
     "Products": {
@@ -110,6 +110,7 @@
         "title": "<em>Our own ideas,</em> running as systems.",
         "intro": "Each product solves one concrete operations problem. We build them with the same method we use with our clients.",
         "view": "View product",
+        "next": "Next piece",
         "visit": "Visit {name}",
         "includes": {
             "title": "<em>From the screen</em> to daily work."
@@ -191,7 +192,12 @@
                         "description": "You buy small credit packs and pay only for what you generate."
                     }
                 ],
-                "shots": {}
+                "shots": {
+                    "crear": "Create an ad",
+                    "inicio": "Home",
+                    "director": "Creative director",
+                    "calendario": "Commercial calendar"
+                }
             }
         }
     },

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import heroPhoto from "@/public/images/crucita-hero.webp";
 import { ScrambleTitle } from "@/src/components/scramble-title";
-import { ProductRoom } from "@/src/components/product-room";
+import { ProductIndex } from "@/src/components/product-index";
 import { Cedula } from "@/src/components/cedula";
 import { HeroTitle } from "@/src/components/hero-title";
 import { RevealOnScroll } from "@/src/components/reveal-on-scroll";
@@ -90,8 +90,10 @@ export default function LandingPage() {
           className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_1lh,#0a0a0b_1lh)] bg-clip-text font-bold tracking-normal text-transparent"
         />
       </div>
-      <section aria-label={tp("label")}>
-        <ProductRoom />
+      {/* The title leaves one of its lines (~0.98 × 6.4vw) as white space; this
+          tops it up to about 96px so the black field never touches its black half. */}
+      <section aria-label={tp("label")} className="mt-[clamp(0px,calc(96px-6.3vw),52px)] bg-[#0a0a0b] py-[clamp(48px,6vw,96px)] text-white">
+        <ProductIndex />
       </section>
 
       {/* Each service: its name large, what it does beside it, and the example. */}
