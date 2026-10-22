@@ -7,6 +7,7 @@
 
 import * as React from "react"
 
+import { useOffTop } from "@/src/lib/use-off-top"
 import { cn } from "@/src/lib/utils"
 
 export interface ScrambleTitleProps {
@@ -19,17 +20,10 @@ export interface ScrambleTitleProps {
 
 export function ScrambleTitle({ text, shuffle = 500, className, style }: ScrambleTitleProps) {
   const rootRef = React.useRef<HTMLHeadingElement>(null)
-  const [shown, setShown] = React.useState(false)
-  const words = React.useMemo(() => text.split(" "), [text])
-
   // Shown whenever the page is off the very top, so going back up hides it
   // again and the next scroll replays the reveal.
-  React.useEffect(() => {
-    const check = () => setShown(window.scrollY > 8)
-    check()
-    window.addEventListener("scroll", check, { passive: true })
-    return () => window.removeEventListener("scroll", check)
-  }, [])
+  const shown = useOffTop()
+  const words = React.useMemo(() => text.split(" "), [text])
 
   React.useEffect(() => {
     const root = rootRef.current

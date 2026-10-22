@@ -7,6 +7,7 @@ import heroPhoto from "@/public/images/crucita-hero.webp";
 import { ScrambleTitle } from "@/src/components/scramble-title";
 import { ProductRoom } from "@/src/components/product-room";
 import { Cedula } from "@/src/components/cedula";
+import { HeroTitle } from "@/src/components/hero-title";
 
 
 export async function generateMetadata({
@@ -50,10 +51,10 @@ export default function LandingPage() {
               photo's height too, so on wide, short screens it stays below the
               boat. From md up its bottom margin matches the left one (the mode
               toggle is far to its right); on a phone it rises above the toggle. */}
-          <h1 className="font-editorial absolute bottom-24 left-0 px-[calc(clamp(4px,1.5vw,16px)+24px)] text-[clamp(44px,min(9vw,14cqh),150px)] leading-[0.95] font-bold tracking-normal text-white md:bottom-[calc(clamp(4px,1.5vw,16px)+24px)]">
+          <HeroTitle className="font-editorial absolute bottom-24 left-0 px-[calc(clamp(4px,1.5vw,16px)+24px)] text-[clamp(44px,min(9vw,14cqh),150px)] leading-[0.95] font-bold tracking-normal text-white md:bottom-[calc(clamp(4px,1.5vw,16px)+24px)]">
             <span className="block">{t("line1")}</span>
             <span className="block">{t("line2")}</span>
-          </h1>
+          </HeroTitle>
           {/* Pinned just under the boat. The photo is object-cover and
               centred, so its scale is max(width/1080, height/607) and a point
               (x, y) in the 1080×607 file sits at 50% + (x - 540, y - 303.5) × scale. */}

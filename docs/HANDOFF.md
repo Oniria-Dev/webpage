@@ -73,6 +73,7 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El menú móvil cerrado es `inert` e `invisible`.
 - **#12 Paridad es/en (hecho):** `pnpm check:messages` falla si una clave existe en un solo idioma y dice cuál y en qué archivo falta. Se corre junto a `typecheck` y `lint`.
 - **#17 Hero y Cédula (hecho):**
+  - **Relevo:** el h1 y el título rojo del borde ocupan el mismo lugar abajo a la izquierda. El h1 se desvanece en cuanto la página deja el tope, que es cuando entra el título (`src/components/hero-title.tsx` y `useOffTop`). Lo decidió el dueño.
   - El h1 va en Imbue 700 abajo a la izquierda, sobre el agua y con el margen del logo, a `min(9vw, 14cqh)`; el tope por altura evita que toque el barco en pantallas anchas y bajas. En el móvil sube por encima del toggle.
   - Se agregó un degradado oscuro abajo, como el de arriba.
   - `src/components/cedula.tsx` es la cédula roja compartida: una línea (`children`) o tres (`name` en negrita, `medium`, `origin`). Blanco sobre `#ED1C24` da 4.4:1, así que el texto va a 24px, o a 18.5px si es negrita. El hero ya la usa.
