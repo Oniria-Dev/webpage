@@ -83,19 +83,29 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - Oniric, que no tiene capturas, muestra una portada tipográfica: el nombre en Imbue enorme sobre negro, con la bolita roja.
   - La sala reemplaza a la rueda en la home y a las tarjetas en `/products`. `ProductsWheel` y `WorksWheel` siguen en el repo, sin usar; `ProductCard` se borró.
 - **#13 Tipografía (hecho):** Imbue + Inter Tight (ver "Piezas técnicas reutilizables"). Los títulos de Filosofía pasan a Imbue 700.
+- **#18 Home completa (falta el visto bueno del dueño):**
+  - Después de la sala de productos vienen "¿Qué hacemos?" (ancla `que-hacemos`), tres creencias de Filosofía con un enlace y el cierre de contacto sobre negro.
+  - Cada servicio muestra su nombre grande con la descripción y el ejemplo al lado. La descripción entera a tamaño grande ocupaba más de dos líneas.
+  - El texto del cierre es el hueco `Home.contact.title` (`[COPY]`) en es y en; el bloque entero es un mailto a `info@oniriasolutions.com`.
+  - El menú recupera "¿Qué hacemos?" / "What we do?" (`Navigation.services`).
+  - **Entrada:** `src/components/reveal-on-scroll.tsx`. Se pone una vez en la página y anima todo elemento con `data-reveal` que empiece bajo el pliegue: sube 24px con opacidad, una vez, con 75ms entre los que entran juntos. Solo el script oculta cosas, así que sin JS todo se ve. Con reduced-motion no se desplaza. No se pone `data-reveal` sobre un enlace o botón con su propia transición; se envuelve.
+  - El footer pierde su línea fina.
 
 ### Lo que hay en la home (de arriba a abajo)
 
 | Pieza | Dónde | Detalle |
 |---|---|---|
-| Header | `src/components/layout/site-header.tsx` | Lockup real de Oniria (isotipo + wordmark Geist SemiBold) impreso en **puntos halftone interactivos**, en blanco y con la bolita en rojo `#ED1C24`. Ancho `clamp(230px,25vw,420px)`. Menú arriba a la derecha en Instrument Serif con guiones en negrilla: `Productos - Qué hacemos¿ - Nosotros - “Filosofía”`. |
+| Header | `src/components/layout/site-header.tsx` | Lockup real de Oniria (isotipo + wordmark Geist SemiBold) impreso en **puntos halftone interactivos**, en blanco y con la bolita en rojo `#ED1C24`. Ancho `clamp(230px,25vw,420px)`. Menú arriba a la derecha en Imbue con guiones en negrilla: `Productos - ¿Qué hacemos? - Nosotros - “Filosofía”`. |
 | Menú móvil | `src/components/layout/mobile-menu.tsx` | Hamburguesa por debajo de 768px y panel negro a pantalla completa. **Primera versión**: el diseño final está pendiente. |
 | Hero | `src/app/[locale]/page.tsx` | Foto de Crucita (`public/images/crucita-hero.webp`, recorte de `crucita.webp`), nítida y con degradado oscuro arriba. h1 centrado en Inter Tight: "La IA es el océano. / Nosotros, el barco." Pie "Crucita, Ecuador. 2026" en una caja roja, alineada a la derecha bajo el barco (posicionada con unidades de container query según el `object-cover`). |
 | Título | `src/components/scramble-title.tsx` | "La potencia latinoamericana de la tecnología cool y a lo grande." en Instrument Serif con negrita sintética. Va **montado sobre el borde de la foto**: la mitad de arriba en rojo y la de abajo en negro (`background-clip:text`). Está oculto arriba del todo; al hacer scroll sube y **baraja sus letras 0.5 s**, y al volver arriba desaparece. **El usuario quiere cambiar este copy** porque "no es tan profesional". |
-| Productos | `src/components/products-wheel.tsx` + `src/components/ui/works-wheel.tsx` | **Works Wheel**: anillo que se abre en tambor 3D al hacer scroll. Hay 5 piezas: las 4 capturas de Argos Suite y Oniric con una portada provisional (`public/products/oniric/cover.svg`). |
+| Productos | `src/components/product-room.tsx` | Sala de productos (#14): cada producto a sangre con su cédula. |
+| ¿Qué hacemos? | `src/app/[locale]/page.tsx` | Ancla `que-hacemos`. Los tres servicios de `Home.what`: el nombre en Imbue grande y al lado la descripción y "Por ejemplo". |
+| Adelanto de Filosofía | `src/app/[locale]/page.tsx` | Las creencias 2, 3 y 7 en Imbue 400 grande y un enlace a `/philosophy`. |
+| Cierre | `src/app/[locale]/page.tsx` | Campo negro con una línea enorme (hueco `[COPY]`) y el email; todo es un mailto. |
 | Footer | `src/components/layout/footer.tsx` | Fondo blanco. Isotipo + firma "Desde el centro del mundo, para todo el mundo" (en inglés "From the center of the world, for the rest of it."). Links crudos en Arial, azul `#0000EE` y minúsculas (estilo MSCHF / Google viejo). © sin "S.A.S". **Provisional**: el arte final del footer se está diseñando en otra sesión. |
 | Toggle | `src/components/layout/mode-toggle.tsx` | Píldora negra fija abajo a la derecha: `human / machine`, en minúsculas, con la opción activa en rojo. "human" va en Helvetica bold y "machine" en VT323. Escribe `<html data-mode>`. |
-| Modo machine | `src/components/layout/machine-view.tsx` | Índice del sitio en texto plano, blanco y en VT323 mayúsculas. Banner "ONIRIA" en bloques con **solo la O en rojo**. Incluye los textos actuales y los de la landing vieja (Sobre, Hoy, Qué hacemos, Productos, Cómo trabajamos, Origen). Está siempre en el HTML (para crawlers y agentes) y se muestra con la variante CSS `machine:` (`globals.css`). |
+| Modo machine | `src/components/layout/machine-view.tsx` | Índice del sitio en texto plano, blanco y en VT323 mayúsculas. Banner "ONIRIA" en bloques con **solo la O en rojo**. Incluye los textos actuales y los de la landing vieja (Sobre, Hoy, Qué hacemos, Productos, Cómo trabajamos, Origen, Filosofía, Contacto). Está siempre en el HTML (para crawlers y agentes) y se muestra con la variante CSS `machine:` (`globals.css`). |
 
 ### Piezas técnicas reutilizables
 
