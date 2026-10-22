@@ -110,6 +110,7 @@
         "title": "<em>Ideas propias,</em> sistemas en marcha.",
         "intro": "Cada producto resuelve un problema concreto de operación. Los construimos con el mismo método que usamos con nuestros clientes.",
         "view": "Ver producto",
+        "next": "Siguiente pieza",
         "visit": "Visitar {name}",
         "includes": {
             "title": "<em>De la pantalla</em> al trabajo diario."
@@ -191,7 +192,12 @@
                         "description": "Compras paquetes pequeños de créditos y pagas solo por lo que generas."
                     }
                 ],
-                "shots": {}
+                "shots": {
+                    "crear": "Crear anuncio",
+                    "inicio": "Inicio",
+                    "director": "Director creativo",
+                    "calendario": "Calendario comercial"
+                }
             }
         }
     },
