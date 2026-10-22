@@ -46,18 +46,18 @@ export default function AboutPage() {
         <Items items={t.raw("facts") as Item[]} className="mt-16 grid gap-10 md:grid-cols-3" />
       </div>
 
-      <Section index="01" label={t("concept.label")} title={t.rich("concept.title", em)} intro={t("concept.body")}>
+      <Section title={t.rich("concept.title", em)} intro={t("concept.body")}>
         <div className="grid items-center gap-12 md:grid-cols-[240px_1fr]">
           <Isotipo aria-hidden className="w-full max-w-[240px]" />
           <Items items={t.raw("concept.parts") as Item[]} className="grid gap-8 sm:grid-cols-2" />
         </div>
       </Section>
 
-      <Section index="02" label={t("traits.label")} title={t.rich("traits.title", em)}>
+      <Section title={t.rich("traits.title", em)}>
         <Items items={t.raw("traits.items") as Item[]} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" />
       </Section>
 
-      <Section index="03" label={t("origin.label")} title={t.rich("origin.title", em)} className="bg-muted">
+      <Section title={t.rich("origin.title", em)} className="bg-muted">
         <p className="max-w-[60ch] text-lg text-muted-foreground">{t("origin.body")}</p>
       </Section>
     </main>
