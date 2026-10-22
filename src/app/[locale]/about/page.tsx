@@ -8,10 +8,9 @@ import quito from "@/public/images/archive/plano-quito-1736.jpg";
 import bouguer from "@/public/images/archive/bouguer-figure-de-la-terre-1749.jpg";
 import routes from "@/public/images/archive/viaje-la-condamine-1749.jpg";
 import { Cedula } from "@/src/components/cedula";
+import { Dreamcatcher } from "@/src/components/dreamcatcher";
 import { RevealOnScroll } from "@/src/components/reveal-on-scroll";
 import { Section, plain } from "@/src/components/section";
-import { HalftoneMark } from "@/src/components/ui/halftone-mark";
-import { ISOTIPO_MARKUP, ISOTIPO_VIEWBOX } from "@/src/components/brand/lockup-markup";
 
 type Item = { title: string; description: string };
 type Archive = { title: string; medium: string; author: string; credit: string; alt: string };
@@ -74,25 +73,9 @@ export default function AboutPage() {
         <p className="font-editorial mt-8 max-w-[56ch] text-[clamp(24px,2.5vw,36px)] leading-[1.2]">{t("lead")}</p>
       </div>
 
-      {/* The dreamcatcher: the isotipo in halftone dots and its four parts. */}
+      {/* The dreamcatcher: the isotipo in halftone dots and its four parts, each lighting its zone. */}
       <Section title={t.rich("concept.title", plain)} intro={t("concept.body")} className="pt-[clamp(120px,14vw,220px)]">
-        <div className="grid items-center gap-[clamp(40px,5vw,80px)] md:grid-cols-12">
-          <div data-reveal className="md:col-span-6">
-            <HalftoneMark
-              source={{ kind: "svg", markup: ISOTIPO_MARKUP, viewBox: ISOTIPO_VIEWBOX }}
-              label="Oniria"
-              className="w-full max-w-[640px]"
-            />
-          </div>
-          <ul className="flex flex-col gap-8 md:col-span-5 md:col-start-8">
-            {parts.map((part) => (
-              <li key={part.title} data-reveal>
-                <Cedula className="text-[24px]">{part.title}</Cedula>
-                <p className="mt-3 max-w-[44ch] text-[clamp(18px,1.5vw,22px)] leading-snug">{part.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Dreamcatcher parts={parts} label="Oniria" />
       </Section>
 
       <Section title={home.rich("how.title", plain)} intro={home("how.intro")}>
