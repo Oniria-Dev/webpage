@@ -8,7 +8,7 @@
     },
     "Navigation": {
         "products": "Productos",
-        "services": "Qué hacemos",
+        "services": "¿Qué hacemos?",
         "about": "Nosotros",
         "philosophy": "Filosofía",
         "menu": "Menú",
@@ -96,6 +96,9 @@
             "line1": "La IA es el océano.",
             "line2": "Nosotros, el barco.",
             "title": "Software latinoamericano, hecho a lo grande."
+        },
+        "contact": {
+            "title": "[COPY: cierre de contacto, ~6 palabras]"
         }
     },
     "Products": {
@@ -280,7 +283,9 @@
             "what": "Qué hacemos",
             "products": "Productos",
             "how": "Cómo trabajamos",
-            "origin": "Origen"
+            "origin": "Origen",
+            "philosophy": "Filosofía",
+            "contact": "Contacto"
         },
         "fields": {
             "name": "Nombre",

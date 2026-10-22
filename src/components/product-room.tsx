@@ -23,7 +23,7 @@ function Piece({ product }: { product: Product }) {
   const name = t(`items.${product.slug}.name`)
   return (
     <Link href={`/products/${product.slug}`} className="group block transition-opacity active:opacity-70">
-      <div className="overflow-hidden">
+      <div data-reveal className="overflow-hidden">
         {product.images.length ? (
           <Image
             src={`/products/${product.dir}/${product.images[0]}.webp`}
@@ -39,12 +39,14 @@ function Piece({ product }: { product: Product }) {
       </div>
       {/* Pulled up over the picture's bottom edge, like a label on the wall
           under a painting. */}
-      <Cedula
-        name={name}
-        medium={`${t(`items.${product.slug}.category`)}, ${product.year}`}
-        origin="Quito, Ecuador"
-        className="relative z-10 mx-[calc(clamp(4px,1.5vw,16px)+24px)] -mt-8 max-w-[calc(100%-2*(clamp(4px,1.5vw,16px)+24px))] text-[24px]"
-      />
+      <div data-reveal className="relative z-10 mx-[calc(clamp(4px,1.5vw,16px)+24px)] -mt-8">
+        <Cedula
+          name={name}
+          medium={`${t(`items.${product.slug}.category`)}, ${product.year}`}
+          origin="Quito, Ecuador"
+          className="max-w-full text-[24px]"
+        />
+      </div>
     </Link>
   )
 }

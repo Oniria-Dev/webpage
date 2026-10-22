@@ -8,7 +8,7 @@
     },
     "Navigation": {
         "products": "Products",
-        "services": "What we do",
+        "services": "What we do?",
         "about": "About",
         "philosophy": "Philosophy",
         "menu": "Menu",
@@ -96,6 +96,9 @@
             "line1": "AI is the ocean.",
             "line2": "We're the boat.",
             "title": "Latin American software, built big."
+        },
+        "contact": {
+            "title": "[COPY: contact close, ~6 words]"
         }
     },
     "Products": {
@@ -280,7 +283,9 @@
             "what": "What we do",
             "products": "Products",
             "how": "How we work",
-            "origin": "Origin"
+            "origin": "Origin",
+            "philosophy": "Philosophy",
+            "contact": "Contact"
         },
         "fields": {
             "name": "Name",
