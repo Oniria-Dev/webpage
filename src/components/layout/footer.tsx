@@ -41,7 +41,7 @@ function Footer() {
           </nav>
         </div>
 
-        <div className="mono-label mt-12 flex flex-col gap-2 border-t border-border pt-6 text-muted-foreground sm:flex-row sm:justify-between">
+        <div className="mono-label mt-12 flex flex-col gap-2 text-muted-foreground sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} ONIRIASOLUTIONS</span>
           <span>{t("origin")}</span>
         </div>
