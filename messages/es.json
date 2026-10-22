@@ -200,7 +200,6 @@
             "title": "Nosotros",
             "description": "Quiénes somos, qué hacemos y de dónde viene Oniria: el atrapasueños, la línea 0° y un método para convertir ideas en sistemas."
         },
-        "label": "Esencia",
         "title": "<em>Ambición de sobra</em> y un método para cumplirla.",
         "lead": "Para las empresas que saben que pueden más, Oniria es el equipo que convierte ideas en sistemas que trabajan solos, con el rigor de una gran tecnológica y la cercanía de un equipo pequeño.",
         "facts": [
@@ -218,7 +217,6 @@
             }
         ],
         "concept": {
-            "label": "Concepto",
             "title": "<em>El atrapasueños</em> y la línea 0°.",
             "body": "Oniria viene de lo onírico: el mundo de los sueños. Un atrapasueños retiene lo valioso y deja pasar el ruido. Eso hacemos con la tecnología: atrapamos tu visión y la convertimos en algo que funciona. Nuestro símbolo lo cuenta en cuatro partes.",
             "parts": [
@@ -240,32 +238,39 @@
                 }
             ]
         },
-        "traits": {
-            "label": "Carácter",
-            "title": "<em>Cuatro rasgos,</em> una sola voz.",
-            "items": [
+        "origin": {
+            "title": "<em>El origen es la firma;</em> el mundo es el alcance.",
+            "body": "Oniria nació en Quito, Ecuador, sobre la línea que cruza nuestro símbolo. Escribimos en español neutro y trabajamos en inglés desde el primer día, para que el mensaje funcione igual en cualquier país.",
+            "archive": [
                 {
-                    "title": "Ambiciosa",
-                    "description": "Pensamos al nivel de las mejores tecnológicas y lo decimos sin pedir permiso."
+                    "title": "Carte de la Méridienne mesurée au Royaume de Quito",
+                    "medium": "Grabado, 1752",
+                    "author": "Jorge Juan y Antonio de Ulloa",
+                    "credit": "Fondo Antiguo de la Biblioteca de la Universidad de Sevilla, CC BY 2.0, vía Wikimedia Commons",
+                    "alt": "Mapa grabado de la cadena de triángulos con que se midió el meridiano entre Quito y Cuenca"
                 },
                 {
-                    "title": "Precisa",
-                    "description": "Minimalista por decisión. Cada línea, palabra y píxel tiene una función."
+                    "title": "Quito, capitale de la province du même nom",
+                    "medium": "Plano manuscrito, 1736",
+                    "author": "Academia de Ciencias de París",
+                    "credit": "Dominio público, vía Wikimedia Commons",
+                    "alt": "Plano de Quito de 1736 en acuarela, con el Panecillo a la izquierda"
                 },
                 {
-                    "title": "Joven",
-                    "description": "Energía de equipo que quiere llegar lejos. Rápida, curiosa, sin solemnidad."
+                    "title": "La Figure de la Terre, planche sixième",
+                    "medium": "Grabado, 1749",
+                    "author": "Pierre Bouguer",
+                    "credit": "Dominio público, vía Wikimedia Commons",
+                    "alt": "Lámina grabada con figuras geométricas, una plomada y dos montañas"
                 },
                 {
-                    "title": "Global",
-                    "description": "Nace sobre la línea que rodea el planeta y piensa en cualquier mercado desde el primer día."
+                    "title": "Carte des routes de M. de La Condamine",
+                    "medium": "Grabado, 1749",
+                    "author": "Jean-Baptiste Bourguignon d’Anville",
+                    "credit": "Dominio público, vía Wikimedia Commons",
+                    "alt": "Mapa grabado del Atlántico con la ruta de La Condamine de Francia al ecuador y de vuelta, 1735–1744"
                 }
             ]
-        },
-        "origin": {
-            "label": "Origen",
-            "title": "<em>El origen es la firma;</em> el mundo es el alcance.",
-            "body": "Oniria nació en Quito, Ecuador, sobre la línea que cruza nuestro símbolo. Escribimos en español neutro y trabajamos en inglés desde el primer día, para que el mensaje funcione igual en cualquier país."
         }
     },
     "Machine": {
