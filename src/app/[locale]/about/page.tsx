@@ -1,26 +1,29 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-import meridian from "@/public/images/archive/meridiana-quito-1752.jpg";
-import quito from "@/public/images/archive/plano-quito-1736.jpg";
-import bouguer from "@/public/images/archive/bouguer-figure-de-la-terre-1749.jpg";
-import routes from "@/public/images/archive/viaje-la-condamine-1749.jpg";
+import humboldt from "@/public/images/archive/humboldt-tableau-physique-1807.jpg";
+import khipu from "@/public/images/archive/khipu-inca-cleveland.jpg";
+import jacquard from "@/public/images/archive/telar-jacquard-1867.jpg";
+import meridian from "@/public/images/archive/meridiana-quito-1748.jpg";
+import quito from "@/public/images/archive/plano-quito-1748.jpg";
 import { Cedula } from "@/src/components/cedula";
 import { Dreamcatcher } from "@/src/components/dreamcatcher";
 import { RevealOnScroll } from "@/src/components/reveal-on-scroll";
 import { Section, plain } from "@/src/components/section";
+import { cn } from "@/src/lib/utils";
 
 type Item = { title: string; description: string };
 type Archive = { title: string; medium: string; author: string; credit: string; alt: string };
 
-// The archive pictures' source pages, in the order of About.origin.archive.
+// The archive pictures' source pages, in the order of About.archive.
 const SOURCES = [
-  "https://commons.wikimedia.org/wiki/File:%22Pl._XXI_A-B-C%22_(19864899908).jpg",
-  "https://commons.wikimedia.org/wiki/File:1736_French_Draft_of_the_Plan_of_Quito.jpg",
-  "https://commons.wikimedia.org/wiki/File:Illustrations_de_Le_figure_de_la_terre..._Voyage_au_P%C3%A9rou._-_(Non_identifi%C3%A9)_;_Pierre_Bouguer_(aut._du_texte)_-_btv1b20000441_(8_of_9).jpg",
-  "https://commons.wikimedia.org/wiki/File:Voyage_aller_et_retour_de_La_Condamine_1735_1744.jpg",
+  "https://www.biodiversitylibrary.org/item/37872",
+  "https://www.clevelandart.org/art/1940.469",
+  "https://wellcomecollection.org/works/nbxw869a",
+  "https://archive.org/details/BUSA313_203",
+  "https://archive.org/details/BUSA313_202",
 ];
 
 const gutter = "px-[calc(clamp(4px,1.5vw,16px)+24px)]";
@@ -57,12 +60,36 @@ function Credit({ item, source }: { item: Archive; source: string }) {
   );
 }
 
+/** An archive picture in the 12-column grid, `span` placing it, with its credit under it. */
+function Plate({ image, item, source, span, sizes, className, imageClassName }: {
+  image: StaticImageData;
+  item: Archive;
+  source: string;
+  span: string;
+  sizes: string;
+  className?: string;
+  imageClassName?: string;
+}) {
+  return (
+    <div className={cn("grid md:grid-cols-12 md:gap-x-8", className)}>
+      <figure className={span}>
+        <Image data-reveal src={image} alt={item.alt} sizes={sizes} className={cn("h-auto w-full", imageClassName)} />
+        <Credit item={item} source={source} />
+      </figure>
+    </div>
+  );
+}
+
+// Between a section's intro and its content.
+const lead = "mb-[clamp(64px,8vw,128px)]";
+
 export default function AboutPage() {
   const t = useTranslations("About");
   const home = useTranslations("Home");
   const parts = t.raw("concept.parts") as Item[];
   const steps = home.raw("how.steps") as Item[];
-  const archive = t.raw("origin.archive") as Archive[];
+  // Found pictures, credited, never shown as our own; one per section.
+  const archive = t.raw("archive") as Archive[];
 
   return (
     <main className="bg-white text-[#0a0a0b]">
@@ -71,14 +98,29 @@ export default function AboutPage() {
           {t.rich("title", plain)}
         </h1>
         <p className="font-editorial mt-8 max-w-[56ch] text-[clamp(24px,2.5vw,36px)] leading-[1.2]">{t("lead")}</p>
+        {/* Humboldt's Chimborazo, full bleed; a phone keeps the volcano and drops the data columns. */}
+        <figure className="-mx-[calc(clamp(4px,1.5vw,16px)+24px)] mt-[clamp(64px,8vw,128px)]">
+          <Image
+            data-reveal
+            src={humboldt}
+            alt={archive[0].alt}
+            sizes="100vw"
+            className="aspect-[4/5] w-full object-cover object-[48%_50%] md:aspect-auto"
+          />
+          <div className={gutter}>
+            <Credit item={archive[0]} source={SOURCES[0]} />
+          </div>
+        </figure>
       </div>
 
       {/* The dreamcatcher: the isotipo in halftone dots and its four parts, each lighting its zone. */}
       <Section title={t.rich("concept.title", plain)} intro={t("concept.body")} className="pt-[clamp(120px,14vw,220px)]">
+        <Plate image={khipu} item={archive[1]} source={SOURCES[1]} span="md:col-span-7" sizes="(min-width: 768px) 58vw, 100vw" className={lead} />
         <Dreamcatcher parts={parts} label="Oniria" />
       </Section>
 
       <Section title={home.rich("how.title", plain)} intro={home("how.intro")}>
+        <Plate image={jacquard} item={archive[2]} source={SOURCES[2]} span="md:col-span-7 md:col-start-6" sizes="(min-width: 768px) 58vw, 100vw" className={lead} />
         {/* role="list": Safari drops list semantics from an ol without markers. */}
         <ol role="list" className="flex flex-col gap-[clamp(40px,5vw,72px)]">
           {steps.map((step) => (
@@ -94,35 +136,19 @@ export default function AboutPage() {
         </ol>
       </Section>
 
-      {/* Quito in the archive: the French Geodesic Mission (1736–1744) measured
-          the meridian here. Found pictures, credited, never shown as our own. */}
+      {/* Quito in the archive: the French Geodesic Mission (1736–1744) measured the meridian here. */}
       <Section title={t.rich("origin.title", plain)} intro={t("origin.body")}>
-        <figure className="-mx-[calc(clamp(4px,1.5vw,16px)+24px)]">
-          <Image
-            data-reveal
-            src={meridian}
-            alt={archive[0].alt}
-            sizes="100vw"
-            className="aspect-[3/2] w-full object-cover object-[28%_50%] md:aspect-auto"
-          />
-          <div className={gutter}>
-            <Credit item={archive[0]} source={SOURCES[0]} />
-          </div>
-        </figure>
-        <div className="mt-[clamp(64px,8vw,128px)] grid gap-[clamp(64px,8vw,128px)] md:grid-cols-12 md:gap-x-8">
-          <figure className="md:col-span-7">
-            <Image data-reveal src={quito} alt={archive[1].alt} sizes="(min-width: 768px) 58vw, 100vw" className="h-auto w-full" />
-            <Credit item={archive[1]} source={SOURCES[1]} />
-          </figure>
-          <figure className="md:col-span-5 md:mt-[clamp(80px,12vw,200px)]">
-            <Image data-reveal src={bouguer} alt={archive[2].alt} sizes="(min-width: 768px) 40vw, 100vw" className="h-auto w-full" />
-            <Credit item={archive[2]} source={SOURCES[2]} />
-          </figure>
-          <figure className="md:col-span-6 md:col-start-4">
-            <Image data-reveal src={routes} alt={archive[3].alt} sizes="(min-width: 768px) 50vw, 100vw" className="h-auto w-full" />
-            <Credit item={archive[3]} source={SOURCES[3]} />
-          </figure>
-        </div>
+        {/* The meridian is a 4:1 strip: it takes the whole section to stay legible, and a phone crops to Quito. */}
+        <Plate
+          image={meridian}
+          item={archive[3]}
+          source={SOURCES[3]}
+          span="md:col-span-12"
+          sizes="100vw"
+          className={lead}
+          imageClassName="aspect-[3/2] object-cover object-[30%_50%] md:aspect-auto"
+        />
+        <Plate image={quito} item={archive[4]} source={SOURCES[4]} span="md:col-span-7 md:col-start-4" sizes="(min-width: 768px) 58vw, 100vw" />
       </Section>
       <RevealOnScroll />
     </main>

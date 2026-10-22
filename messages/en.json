@@ -246,38 +246,45 @@
         },
         "origin": {
             "title": "<em>The origin is the signature;</em> the world is the reach.",
-            "body": "Oniria was born in Quito, Ecuador, on the line that crosses our symbol. We write in neutral Spanish and work in English from day one, so the message lands the same in any country.",
-            "archive": [
-                {
-                    "title": "Carte de la Méridienne mesurée au Royaume de Quito",
-                    "medium": "Engraving, 1752",
-                    "author": "Jorge Juan and Antonio de Ulloa",
-                    "credit": "Fondo Antiguo de la Biblioteca de la Universidad de Sevilla, CC BY 2.0, via Wikimedia Commons",
-                    "alt": "Engraved map of the chain of triangles used to measure the meridian between Quito and Cuenca"
-                },
-                {
-                    "title": "Quito, capitale de la province du même nom",
-                    "medium": "Manuscript plan, 1736",
-                    "author": "Paris Academy of Sciences",
-                    "credit": "Public domain, via Wikimedia Commons",
-                    "alt": "Watercolour plan of Quito from 1736, with the Panecillo hill on the left"
-                },
-                {
-                    "title": "La Figure de la Terre, planche sixième",
-                    "medium": "Engraving, 1749",
-                    "author": "Pierre Bouguer",
-                    "credit": "Public domain, via Wikimedia Commons",
-                    "alt": "Engraved plate with geometric figures, a plumb bob and two mountains"
-                },
-                {
-                    "title": "Carte des routes de M. de La Condamine",
-                    "medium": "Engraving, 1749",
-                    "author": "Jean-Baptiste Bourguignon d’Anville",
-                    "credit": "Public domain, via Wikimedia Commons",
-                    "alt": "Engraved map of the Atlantic with La Condamine’s route from France to the equator and back, 1735–1744"
-                }
-            ]
-        }
+            "body": "Oniria was born in Quito, Ecuador, on the line that crosses our symbol. In 1736 a French expedition came here to measure that line; from here, the shape of the whole planet was worked out. We still do the same: work from the center, for the whole world. We write in neutral Spanish and work in English from day one, so the message lands the same in any country."
+        },
+        "archive": [
+            {
+                "title": "Tableau physique des Andes et pays voisins",
+                "medium": "Hand-coloured engraving, 1807",
+                "author": "Alexander von Humboldt and Aimé Bonpland",
+                "credit": "Missouri Botanical Garden, public domain, via Biodiversity Heritage Library",
+                "alt": "Hand-coloured profile of Chimborazo, with plant names set by altitude and columns of data on each side"
+            },
+            {
+                "title": "Inca khipu",
+                "medium": "Knotted cotton and wool cords, 1400–1532",
+                "author": "Inca culture, Peru",
+                "credit": "Cleveland Museum of Art, CC0",
+                "alt": "Inca khipu: dozens of knotted cords fanning out from a single cord"
+            },
+            {
+                "title": "Jacquard loom, front and rear elevations",
+                "medium": "Engraving, c. 1867",
+                "author": "Pegard after L. Guiguet",
+                "credit": "Wellcome Collection, public domain",
+                "alt": "Two engraved views of a Jacquard mechanism; a long chain of punched cards hangs from the one on the right"
+            },
+            {
+                "title": "Carta de la Meridiana medida en el Reyno de Quito",
+                "medium": "Engraving, 1748",
+                "author": "Jorge Juan and Antonio de Ulloa",
+                "credit": "Biblioteca de la Universidad de Sevilla, public domain, via Internet Archive",
+                "alt": "Engraved map of the chain of triangles used to measure the meridian between Quito and Cuenca"
+            },
+            {
+                "title": "Plano de la Ciudad de San Francisco del Quito",
+                "medium": "Engraving, 1748",
+                "author": "Jorge Juan and Antonio de Ulloa",
+                "credit": "Biblioteca de la Universidad de Sevilla, public domain, via Internet Archive",
+                "alt": "Engraved plan of Quito in 1748, with its street grid and El Panecillo hill on the left"
+            }
+        ]
     },
     "Machine": {
         "index": "Oniria :: machine-readable index",

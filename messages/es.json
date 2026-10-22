@@ -246,38 +246,45 @@
         },
         "origin": {
             "title": "<em>El origen es la firma;</em> el mundo es el alcance.",
-            "body": "Oniria nació en Quito, Ecuador, sobre la línea que cruza nuestro símbolo. Escribimos en español neutro y trabajamos en inglés desde el primer día, para que el mensaje funcione igual en cualquier país.",
-            "archive": [
-                {
-                    "title": "Carte de la Méridienne mesurée au Royaume de Quito",
-                    "medium": "Grabado, 1752",
-                    "author": "Jorge Juan y Antonio de Ulloa",
-                    "credit": "Fondo Antiguo de la Biblioteca de la Universidad de Sevilla, CC BY 2.0, vía Wikimedia Commons",
-                    "alt": "Mapa grabado de la cadena de triángulos con que se midió el meridiano entre Quito y Cuenca"
-                },
-                {
-                    "title": "Quito, capitale de la province du même nom",
-                    "medium": "Plano manuscrito, 1736",
-                    "author": "Academia de Ciencias de París",
-                    "credit": "Dominio público, vía Wikimedia Commons",
-                    "alt": "Plano de Quito de 1736 en acuarela, con el Panecillo a la izquierda"
-                },
-                {
-                    "title": "La Figure de la Terre, planche sixième",
-                    "medium": "Grabado, 1749",
-                    "author": "Pierre Bouguer",
-                    "credit": "Dominio público, vía Wikimedia Commons",
-                    "alt": "Lámina grabada con figuras geométricas, una plomada y dos montañas"
-                },
-                {
-                    "title": "Carte des routes de M. de La Condamine",
-                    "medium": "Grabado, 1749",
-                    "author": "Jean-Baptiste Bourguignon d’Anville",
-                    "credit": "Dominio público, vía Wikimedia Commons",
-                    "alt": "Mapa grabado del Atlántico con la ruta de La Condamine de Francia al ecuador y de vuelta, 1735–1744"
-                }
-            ]
-        }
+            "body": "Oniria nació en Quito, Ecuador, sobre la línea que cruza nuestro símbolo. En 1736 una expedición francesa vino hasta aquí a medir esa línea; desde aquí se calculó la forma del planeta entero. Nosotros seguimos haciendo lo mismo: trabajar desde el centro para todo el mundo. Escribimos en español neutro y trabajamos en inglés desde el primer día, para que el mensaje funcione igual en cualquier país."
+        },
+        "archive": [
+            {
+                "title": "Tableau physique des Andes et pays voisins",
+                "medium": "Grabado coloreado a mano, 1807",
+                "author": "Alexander von Humboldt y Aimé Bonpland",
+                "credit": "Missouri Botanical Garden, dominio público, vía Biodiversity Heritage Library",
+                "alt": "Perfil del Chimborazo coloreado a mano, con los nombres de las plantas según la altura y columnas de datos a cada lado"
+            },
+            {
+                "title": "Khipu inca",
+                "medium": "Cuerdas anudadas de algodón y lana, 1400–1532",
+                "author": "Cultura inca, Perú",
+                "credit": "Cleveland Museum of Art, CC0",
+                "alt": "Khipu inca: decenas de cuerdas anudadas que se abren en abanico desde un cordón"
+            },
+            {
+                "title": "Telar Jacquard, vistas de frente y de espaldas",
+                "medium": "Grabado, h. 1867",
+                "author": "Pegard, según L. Guiguet",
+                "credit": "Wellcome Collection, dominio público",
+                "alt": "Dos vistas grabadas de un mecanismo Jacquard; de la de la derecha cuelga una larga cadena de tarjetas perforadas"
+            },
+            {
+                "title": "Carta de la Meridiana medida en el Reyno de Quito",
+                "medium": "Grabado, 1748",
+                "author": "Jorge Juan y Antonio de Ulloa",
+                "credit": "Biblioteca de la Universidad de Sevilla, dominio público, vía Internet Archive",
+                "alt": "Mapa grabado de la cadena de triángulos con que se midió el meridiano entre Quito y Cuenca"
+            },
+            {
+                "title": "Plano de la Ciudad de San Francisco del Quito",
+                "medium": "Grabado, 1748",
+                "author": "Jorge Juan y Antonio de Ulloa",
+                "credit": "Biblioteca de la Universidad de Sevilla, dominio público, vía Internet Archive",
+                "alt": "Plano grabado de Quito en 1748, con la cuadrícula de calles y El Panecillo a la izquierda"
+            }
+        ]
     },
     "Machine": {
         "index": "Oniria :: índice legible por máquinas",
