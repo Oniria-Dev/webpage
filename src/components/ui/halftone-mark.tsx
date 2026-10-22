@@ -6,7 +6,9 @@
 // in `ink`, pure red (#f00, SVG only) prints in `accent`, and each dot takes
 // whichever its cell is mostly made of. With `split`, dots above a line across
 // the canvas print in another ink, so a title can straddle a photo's edge.
-// Hover parts the dots on springs; click sends a ring through.
+// Hover parts the dots on springs; click sends a ring through. With `regions`,
+// each dot remembers which zone of the art it sits in, and `active` lights one
+// zone in `accent` and dims the rest, without moving anything.
 
 import * as React from "react"
 
@@ -53,11 +55,17 @@ export interface HalftoneMarkProps {
   pad?: number
   /** Pointer and click response. */
   interactive?: boolean
+  /** SVG markup per zone, in the source's viewBox (SVG sources only). */
+  regions?: readonly string[]
+  /** The zone to light, by index into `regions`; none when undefined. */
+  active?: number
   /** Sizes the mark: give the root a width. */
   className?: string
 }
 
-const STRIDE = 8 // x, y, vx, vy, hx, hy, r, accent
+const STRIDE = 9 // x, y, vx, vy, hx, hy, r, accent, region
+// Zone i is painted in red (i + 1) * ZONE so one mask holds them all.
+const ZONE = 40
 
 /** Greedy word wrap against `max` px. */
 function wrap(m: CanvasRenderingContext2D, text: string, max: number) {
@@ -85,16 +93,22 @@ export function HalftoneMark({
   radius = 60,
   pad = 24,
   interactive = true,
+  regions,
+  active,
   className,
 }: HalftoneMarkProps) {
   const rootRef = React.useRef<HTMLDivElement>(null)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
-  const opts = React.useRef({ ink, accent, warm, split, dotGap, radius, pad, interactive })
+  const opts = React.useRef({ ink, accent, warm, split, dotGap, radius, pad, interactive, active })
+  const wakeRef = React.useRef<() => void>(() => {})
   React.useEffect(() => {
-    opts.current = { ink, accent, warm, split, dotGap, radius, pad, interactive }
+    opts.current = { ink, accent, warm, split, dotGap, radius, pad, interactive, active }
   })
+  // A new active zone only needs a redraw.
+  React.useEffect(() => wakeRef.current(), [active])
   const sourceKey = JSON.stringify(source)
-  const key = [sourceKey, ink, accent, warm, split?.ink, split?.ratio, dotGap, pad].join("|")
+  const regionsKey = JSON.stringify(regions ?? [])
+  const key = [sourceKey, regionsKey, ink, accent, warm, split?.ink, split?.ratio, dotGap, pad].join("|")
 
   // SVG art has a known aspect, so the box can reserve its height up front;
   // text sets its own height once it has been wrapped.
@@ -127,7 +141,7 @@ export function HalftoneMark({
     const warmRgb = hwfHex(opts.current.warm) || [194, 54, 28]
     const splitRgb = opts.current.split ? hwfHex(opts.current.split.ink) || accentRgb : inkRgb
 
-    const sample = (data: Uint8ClampedArray) => {
+    const sample = (data: Uint8ClampedArray, zones?: Uint8ClampedArray) => {
       const o = opts.current
       // Finer dots when the mark is small, so a phone-sized logo still reads.
       const gap = Math.max(2.5, Math.min(o.dotGap, w / 100))
@@ -154,7 +168,12 @@ export function HalftoneMark({
           const isAccent = red / Math.max(1, sum) > 0.5 ? 1 : 0
           const hx = gx * gap + gap / 2
           const hy = gy * gap + gap / 2
-          tmp.push(hx, hy, 0, 0, hx, hy, hwfRadius(cov, gap), isAccent)
+          let zone = -1
+          if (zones) {
+            const p = (Math.min(h - 1, Math.floor(hy)) * w + Math.min(w - 1, Math.floor(hx))) * 4
+            if (zones[p + 3] > 127) zone = Math.round(zones[p] / ZONE) - 1
+          }
+          tmp.push(hx, hy, 0, 0, hx, hy, hwfRadius(cov, gap), isAccent, zone)
         }
       }
       canvas.width = Math.round(w * dpr)
@@ -182,19 +201,28 @@ export function HalftoneMark({
         const artH = artW * aspect
         h = Math.max(1, Math.round(artH + o.pad * 2))
         const [vx, vy, vw, vh] = src.viewBox
-        const svg =
-          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + [vx, vy, vw, vh].join(" ") +
-          '" width="' + artW + '" height="' + artH + '">' + src.markup + "</svg>"
-        const img = new Image()
-        img.onload = () => {
-          // A newer layout may have started while this one was decoding.
-          if (!alive || id !== build) return
-          const m = newMask()
-          if (!m) return
-          m.drawImage(img, o.pad, o.pad, artW, artH)
-          sample(m.getImageData(0, 0, w, h).data)
-        }
-        img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg)
+        const raster = (markup: string) =>
+          new Promise<Uint8ClampedArray | undefined>((resolve) => {
+            const svg =
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + [vx, vy, vw, vh].join(" ") +
+              '" width="' + artW + '" height="' + artH + '">' + markup + "</svg>"
+            const img = new Image()
+            img.onload = () => {
+              const m = newMask()
+              if (!m) return resolve(undefined)
+              m.drawImage(img, o.pad, o.pad, artW, artH)
+              resolve(m.getImageData(0, 0, w, h).data)
+            }
+            img.onerror = () => resolve(undefined)
+            img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg)
+          })
+        const zones = JSON.parse(regionsKey) as string[]
+        const zoneMarkup = zones.map((m, i) => '<g fill="rgb(' + (i + 1) * ZONE + ',0,0)" stroke="none">' + m + "</g>").join("")
+        Promise.all([raster(src.markup), zones.length ? raster(zoneMarkup) : undefined]).then(([art, zoneData]) => {
+          // A newer layout may have started while these were decoding.
+          if (!alive || id !== build || !art) return
+          sample(art, zoneData)
+        })
         return
       }
 
@@ -284,11 +312,15 @@ export function HalftoneMark({
         const base = dots[j + 7] > 0.5 ? accentRgb : above ? splitRgb : inkRgb
         const rest = dots[j + 7] > 0.5 ? o.accent : above && o.split ? o.split.ink : o.ink
         const k = hwfWarmth(x, y, hx, hy, 28)
-        ctx.fillStyle = k > 0.02 ? mix(base, k) : rest
+        // A lit zone prints in the accent and a little larger; the others fade back.
+        const lit = o.active !== undefined && dots[j + 8] === o.active
+        ctx.globalAlpha = o.active === undefined || lit ? 1 : 0.22
+        ctx.fillStyle = lit ? o.accent : k > 0.02 ? mix(base, k) : rest
         ctx.beginPath()
-        ctx.arc(x, y, dots[j + 6], 0, 6.2832)
+        ctx.arc(x, y, dots[j + 6] * (lit ? 1.25 : 1), 0, 6.2832)
         ctx.fill()
       }
+      ctx.globalAlpha = 1
       // Sleep once everything is home and nothing is pushing.
       awake = moving || ringAge < 900 || px > -1e4
     }
@@ -303,6 +335,7 @@ export function HalftoneMark({
       awake = true
       if (!raf && visible) raf = requestAnimationFrame(loop)
     }
+    wakeRef.current = wake
 
     const toLocal = (e: PointerEvent) => {
       const b = canvas.getBoundingClientRect()
@@ -356,7 +389,7 @@ export function HalftoneMark({
       root.removeEventListener("pointerleave", onLeave)
       root.removeEventListener("pointerdown", onDown)
     }
-  }, [key, sourceKey, aspect])
+  }, [key, sourceKey, regionsKey, aspect])
 
   return (
     <div

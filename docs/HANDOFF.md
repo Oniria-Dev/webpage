@@ -83,19 +83,66 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - Oniric, que no tiene capturas, muestra una portada tipográfica: el nombre en Imbue enorme sobre negro, con la bolita roja.
   - La sala reemplaza a la rueda en la home y a las tarjetas en `/products`. `ProductsWheel` y `WorksWheel` siguen en el repo, sin usar; `ProductCard` se borró.
 - **#13 Tipografía (hecho):** Imbue + Inter Tight (ver "Piezas técnicas reutilizables"). Los títulos de Filosofía pasan a Imbue 700.
+- **#18 Home completa (falta el visto bueno del dueño):**
+  - Después de la sala de productos vienen "¿Qué hacemos?" (ancla `que-hacemos`), tres creencias de Filosofía con un enlace y el cierre de contacto sobre negro.
+  - Cada servicio muestra su nombre grande con la descripción y el ejemplo al lado. La descripción entera a tamaño grande ocupaba más de dos líneas.
+  - El texto del cierre es el hueco `Home.contact.title` (`[COPY]`) en es y en; el bloque entero es un mailto a `info@oniriasolutions.com`.
+  - El menú recupera "¿Qué hacemos?" / "What we do?" (`Navigation.services`).
+  - **Entrada:** `src/components/reveal-on-scroll.tsx`. Se pone una vez en la página y anima todo elemento con `data-reveal` que empiece bajo el pliegue: sube 24px con opacidad, una vez, con 75ms entre los que entran juntos. Solo el script oculta cosas, así que sin JS todo se ve. Con reduced-motion no se desplaza. No se pone `data-reveal` sobre un enlace o botón con su propia transición; se envuelve.
+  - El footer pierde su línea fina.
+- **#15 Filosofía (hecho):**
+  - Las 7 creencias van en Imbue 400 a `clamp(34px,6.4vw,112px)`, en 8 de 12 columnas, con la explicación al lado en Inter Tight, en negro y a 18–22px. En el móvil la explicación va debajo.
+  - No hay números, líneas ni etiqueta; el espacio separa una de otra. Es un `ol` con `role="list"` para que Safari lo siga leyendo como lista.
+  - La primera abre con un recorte del barco (`crucita.webp`, 21/9 en el escritorio y 4/3 en el móvil) y la cédula "Crucita, Ecuador. 2026".
+  - El lead va en negro y el CTA de correo se mantiene. Todo usa la animación de entrada.
+- **#19 Ficha de producto (hecho):**
+  - Abre con la primera captura a sangre y su cédula de tres líneas. Oniric, sin capturas, usa la portada tipográfica de la sala (`TypeCover`, exportada desde `product-room.tsx`).
+  - Debajo van el nombre (h1), el tagline, la descripción y el botón "Visitar", que es plano, cuadrado y negro, y abre la URL de producción en otra pestaña.
+  - "Para quién" y "Qué resuelve" van como dos frases en Imbue, sin etiqueta.
+  - Las funciones van como una lista: el nombre grande y la descripción al lado.
+  - El resto de las capturas van a sangre, una por fila, con su nombre en una cédula de una línea.
+  - Se fue el enlace "Todos los productos"; al catálogo se llega desde el menú.
+  - `Section` (`src/components/section.tsx`) ya no tiene riel, número ni línea: título en Imbue, intro opcional y solo espacio entre secciones (60–110px a cada lado). Nosotros la usa y se ve a medias hasta el #16.
+  - Se borraron `product-card.tsx` (`ProductVisual`, `NodesGraphic`) y las claves sin uso `Products.back`, `forWhom`, `solves`, `includes.label` y `screens.label`.
+- **#16 Nosotros (hecho):**
+  - Abre con el título (h1) y `About.lead` como statement en Imbue a 24–36px.
+  - **El atrapasueños:** el isotipo grande en puntos halftone (`HalftoneMark` con `ISOTIPO_MARKUP`). Es el primer grupo del lockup ya generado, separado en `lockup-markup.ts`, sin redibujar nada. Al lado van las cuatro partes, cada una con su cédula y su texto. La interacción queda para el #20.
+  - **Cómo trabajamos:** los 4 pasos de `Home.how` en un `ol` (`role="list"`), con el nombre enorme y la descripción al lado.
+  - **Origen:** cuatro imágenes de archivo de la Misión Geodésica, cada una con su cédula (título, técnica y año, autor) y debajo un crédito enlazado a la fuente. Están en `public/images/archive/` y sus textos en `About.origin.archive`.
+  - Se borraron "Cuatro rasgos" (`About.traits`) y las etiquetas `About.label`, `concept.label` y `origin.label`. **`About.facts` (Qué hacemos / Para quién / Cómo nos distinguimos) ya no se muestra, pero sus claves siguen**: el dueño decide si se borran.
+  - El mínimo de los títulos de `Section` bajó a 34px, para que "The origin is the signature; the world is the reach." quepa en dos líneas a 390px.
+
+- **#20 Isotipo interactivo (falta el visto bueno del dueño):**
+  - `src/components/dreamcatcher.tsx`: cada parte es un botón (`aria-pressed`) con su cédula, y la descripción va debajo. Hover, foco o toque la activan. Hay una sola activa a la vez y queda encendida hasta que se elige otra.
+  - `HalftoneMark` acepta `regions` (markup SVG por zona, en el viewBox de la fuente) y `active`. Cada punto recuerda en qué zona cae. La zona activa se pinta en el acento y un 25% más grande, y el resto baja a 22% de opacidad. No se mueve nada, así que reduced-motion no cambia nada.
+  - Las zonas están en `ISOTIPO_REGIONS` (`lockup-markup.ts`), en el orden de `About.concept.parts`. Son formas holgadas sobre el dibujo existente; solo reciben zona los puntos que imprimen el logo.
+  - El estado no depende del color: la cédula activa lleva una flecha "→" y las demás descripciones se atenúan.
+  - El inspector da un WARN `mixed-font-headline` a 390px: lee cada parte (cédula + descripción) como un titular. Es un botón con su descripción, no un titular.
+
+#### Imágenes de archivo (Nosotros)
+
+| Archivo | Obra | Licencia | Fuente |
+|---|---|---|---|
+| `meridiana-quito-1752.jpg` | Jorge Juan y Antonio de Ulloa, *Carte de la Méridienne mesurée au Royaume de Quito*, en *Voyage historique de l'Amérique méridionale* (1752). Escaneo del Fondo Antiguo de la Biblioteca de la Universidad de Sevilla | CC BY 2.0 (crédito obligatorio) | https://commons.wikimedia.org/wiki/File:%22Pl._XXI_A-B-C%22_(19864899908).jpg |
+| `plano-quito-1736.jpg` | Academia de Ciencias de París, plano de Quito levantado en 1736 | Dominio público | https://commons.wikimedia.org/wiki/File:1736_French_Draft_of_the_Plan_of_Quito.jpg |
+| `bouguer-figure-de-la-terre-1749.jpg` | Pierre Bouguer, *La Figure de la Terre*, lámina sexta (1749) | Dominio público | https://commons.wikimedia.org/wiki/File:Illustrations_de_Le_figure_de_la_terre..._Voyage_au_P%C3%A9rou._-_(Non_identifi%C3%A9)_;_Pierre_Bouguer_(aut._du_texte)_-_btv1b20000441_(8_of_9).jpg |
+| `viaje-la-condamine-1749.jpg` | Jean-Baptiste Bourguignon d'Anville, *Carte des routes de M. de La Condamine* (1749) | Dominio público | https://commons.wikimedia.org/wiki/File:Voyage_aller_et_retour_de_La_Condamine_1735_1744.jpg |
 
 ### Lo que hay en la home (de arriba a abajo)
 
 | Pieza | Dónde | Detalle |
 |---|---|---|
-| Header | `src/components/layout/site-header.tsx` | Lockup real de Oniria (isotipo + wordmark Geist SemiBold) impreso en **puntos halftone interactivos**, en blanco y con la bolita en rojo `#ED1C24`. Ancho `clamp(230px,25vw,420px)`. Menú arriba a la derecha en Instrument Serif con guiones en negrilla: `Productos - Qué hacemos¿ - Nosotros - “Filosofía”`. |
+| Header | `src/components/layout/site-header.tsx` | Lockup real de Oniria (isotipo + wordmark Geist SemiBold) impreso en **puntos halftone interactivos**, en blanco y con la bolita en rojo `#ED1C24`. Ancho `clamp(230px,25vw,420px)`. Menú arriba a la derecha en Imbue con guiones en negrilla: `Productos - ¿Qué hacemos? - Nosotros - “Filosofía”`. |
 | Menú móvil | `src/components/layout/mobile-menu.tsx` | Hamburguesa por debajo de 768px y panel negro a pantalla completa. **Primera versión**: el diseño final está pendiente. |
 | Hero | `src/app/[locale]/page.tsx` | Foto de Crucita (`public/images/crucita-hero.webp`, recorte de `crucita.webp`), nítida y con degradado oscuro arriba. h1 centrado en Inter Tight: "La IA es el océano. / Nosotros, el barco." Pie "Crucita, Ecuador. 2026" en una caja roja, alineada a la derecha bajo el barco (posicionada con unidades de container query según el `object-cover`). |
 | Título | `src/components/scramble-title.tsx` | "La potencia latinoamericana de la tecnología cool y a lo grande." en Instrument Serif con negrita sintética. Va **montado sobre el borde de la foto**: la mitad de arriba en rojo y la de abajo en negro (`background-clip:text`). Está oculto arriba del todo; al hacer scroll sube y **baraja sus letras 0.5 s**, y al volver arriba desaparece. **El usuario quiere cambiar este copy** porque "no es tan profesional". |
-| Productos | `src/components/products-wheel.tsx` + `src/components/ui/works-wheel.tsx` | **Works Wheel**: anillo que se abre en tambor 3D al hacer scroll. Hay 5 piezas: las 4 capturas de Argos Suite y Oniric con una portada provisional (`public/products/oniric/cover.svg`). |
+| Productos | `src/components/product-room.tsx` | Sala de productos (#14): cada producto a sangre con su cédula. |
+| ¿Qué hacemos? | `src/app/[locale]/page.tsx` | Ancla `que-hacemos`. Los tres servicios de `Home.what`: el nombre en Imbue grande y al lado la descripción y "Por ejemplo". |
+| Adelanto de Filosofía | `src/app/[locale]/page.tsx` | Las creencias 2, 3 y 7 en Imbue 400 grande y un enlace a `/philosophy`. |
+| Cierre | `src/app/[locale]/page.tsx` | Campo negro con una línea enorme (hueco `[COPY]`) y el email; todo es un mailto. |
 | Footer | `src/components/layout/footer.tsx` | Fondo blanco. Isotipo + firma "Desde el centro del mundo, para todo el mundo" (en inglés "From the center of the world, for the rest of it."). Links crudos en Arial, azul `#0000EE` y minúsculas (estilo MSCHF / Google viejo). © sin "S.A.S". **Provisional**: el arte final del footer se está diseñando en otra sesión. |
 | Toggle | `src/components/layout/mode-toggle.tsx` | Píldora negra fija abajo a la derecha: `human / machine`, en minúsculas, con la opción activa en rojo. "human" va en Helvetica bold y "machine" en VT323. Escribe `<html data-mode>`. |
-| Modo machine | `src/components/layout/machine-view.tsx` | Índice del sitio en texto plano, blanco y en VT323 mayúsculas. Banner "ONIRIA" en bloques con **solo la O en rojo**. Incluye los textos actuales y los de la landing vieja (Sobre, Hoy, Qué hacemos, Productos, Cómo trabajamos, Origen). Está siempre en el HTML (para crawlers y agentes) y se muestra con la variante CSS `machine:` (`globals.css`). |
+| Modo machine | `src/components/layout/machine-view.tsx` | Índice del sitio en texto plano, blanco y en VT323 mayúsculas. Banner "ONIRIA" en bloques con **solo la O en rojo**. Incluye los textos actuales y los de la landing vieja (Sobre, Hoy, Qué hacemos, Productos, Cómo trabajamos, Origen, Filosofía, Contacto). Está siempre en el HTML (para crawlers y agentes) y se muestra con la variante CSS `machine:` (`globals.css`). |
 
 ### Piezas técnicas reutilizables
 

@@ -6,7 +6,7 @@ import { cn } from "@/src/lib/utils"
 // piece carries one. Either a single line (the hero photo's caption) or three:
 // the name in bold, the medium with its year, and where it comes from.
 type CedulaProps = {
-  as?: "p" | "figcaption" | "div"
+  as?: "p" | "figcaption" | "div" | "span"
   className?: string
   style?: React.CSSProperties
 } & ({ children: React.ReactNode } | { name: string; medium: string; origin: string })

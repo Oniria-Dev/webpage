@@ -10,7 +10,7 @@ import { MobileMenu, type NavItem } from "@/src/components/layout/mobile-menu"
 
 const links = [
   { href: "/products", key: "products" },
-  // "Qué hacemos¿" (/#que-hacemos) is hidden until the home has that section again.
+  { href: "/#que-hacemos", key: "services" },
   { href: "/about", key: "about" },
   { href: "/philosophy", key: "philosophy" },
 ] as const

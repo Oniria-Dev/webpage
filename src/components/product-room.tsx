@@ -7,7 +7,7 @@ import { products, type Product } from "@/src/lib/products"
 
 // A product with no screenshots yet shows its name as the piece: Imbue, huge,
 // on black, with the logo's red dot.
-function TypeCover({ name }: { name: string }) {
+export function TypeCover({ name }: { name: string }) {
   return (
     <div className="grid aspect-[16/10] w-full place-items-center bg-[#0a0a0b] text-white">
       <span className="font-editorial relative text-[clamp(96px,22vw,360px)] leading-none font-bold">
@@ -23,7 +23,7 @@ function Piece({ product }: { product: Product }) {
   const name = t(`items.${product.slug}.name`)
   return (
     <Link href={`/products/${product.slug}`} className="group block transition-opacity active:opacity-70">
-      <div className="overflow-hidden">
+      <div data-reveal className="overflow-hidden">
         {product.images.length ? (
           <Image
             src={`/products/${product.dir}/${product.images[0]}.webp`}
@@ -39,12 +39,14 @@ function Piece({ product }: { product: Product }) {
       </div>
       {/* Pulled up over the picture's bottom edge, like a label on the wall
           under a painting. */}
-      <Cedula
-        name={name}
-        medium={`${t(`items.${product.slug}.category`)}, ${product.year}`}
-        origin="Quito, Ecuador"
-        className="relative z-10 mx-[calc(clamp(4px,1.5vw,16px)+24px)] -mt-8 max-w-[calc(100%-2*(clamp(4px,1.5vw,16px)+24px))] text-[24px]"
-      />
+      <div data-reveal className="relative z-10 mx-[calc(clamp(4px,1.5vw,16px)+24px)] -mt-8">
+        <Cedula
+          name={name}
+          medium={`${t(`items.${product.slug}.category`)}, ${product.year}`}
+          origin="Quito, Ecuador"
+          className="max-w-full text-[24px]"
+        />
+      </div>
     </Link>
   )
 }

@@ -62,6 +62,7 @@ export function MachineView() {
   const nav = useTranslations("Navigation")
   const home = useTranslations("Home")
   const prod = useTranslations("Products")
+  const philosophy = useTranslations("Philosophy")
 
   const links = [
     { href: "/", label: m("home") },
@@ -71,6 +72,7 @@ export function MachineView() {
   ]
   const what = home.raw("what.items") as Item[]
   const how = home.raw("how.steps") as Item[]
+  const beliefs = philosophy.raw("items") as Item[]
 
   return (
     <div className="font-cli hidden min-h-dvh bg-white px-[clamp(16px,4vw,48px)] pt-[clamp(24px,5vw,56px)] pb-32 text-[clamp(17px,1.5vw,21px)] leading-[1.35] text-[#0a0a0b] uppercase machine:block">
@@ -186,6 +188,26 @@ export function MachineView() {
       <Rule label={m("sections.origin")} />
       <p className="max-w-[70ch]">{plain(home.raw("origin.title") as string)}</p>
       <p className="mt-2 max-w-[70ch] opacity-60">{home("origin.body")}</p>
+
+      <Rule label={m("sections.philosophy")} />
+      <ul className="max-w-[70ch] space-y-1">
+        {[1, 2, 6].map((i) => (
+          <li key={i}>&gt; {beliefs[i].title}</li>
+        ))}
+      </ul>
+      <p className="mt-4">
+        <Link href="/philosophy" className="underline underline-offset-4">
+          /{nav("philosophy")}
+        </Link>
+      </p>
+
+      <Rule label={m("sections.contact")} />
+      <p className="max-w-[70ch]">
+        {home("contact.title")}{" "}
+        <a href="mailto:info@oniriasolutions.com" className="underline underline-offset-4">
+          info@oniriasolutions.com
+        </a>
+      </p>
 
       <p className="mt-16 opacity-60">© {new Date().getFullYear()} ONIRIASOLUTIONS · {nav("origin")}</p>
     </div>
