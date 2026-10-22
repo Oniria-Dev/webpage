@@ -104,13 +104,20 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - Se fue el enlace "Todos los productos"; al catálogo se llega desde el menú.
   - `Section` (`src/components/section.tsx`) ya no tiene riel, número ni línea: título en Imbue, intro opcional y solo espacio entre secciones (60–110px a cada lado). Nosotros la usa y se ve a medias hasta el #16.
   - Se borraron `product-card.tsx` (`ProductVisual`, `NodesGraphic`) y las claves sin uso `Products.back`, `forWhom`, `solves`, `includes.label` y `screens.label`.
-- **#16 Nosotros (falta el visto bueno del dueño):**
+- **#16 Nosotros (hecho):**
   - Abre con el título (h1) y `About.lead` como statement en Imbue a 24–36px.
   - **El atrapasueños:** el isotipo grande en puntos halftone (`HalftoneMark` con `ISOTIPO_MARKUP`). Es el primer grupo del lockup ya generado, separado en `lockup-markup.ts`, sin redibujar nada. Al lado van las cuatro partes, cada una con su cédula y su texto. La interacción queda para el #20.
   - **Cómo trabajamos:** los 4 pasos de `Home.how` en un `ol` (`role="list"`), con el nombre enorme y la descripción al lado.
   - **Origen:** cuatro imágenes de archivo de la Misión Geodésica, cada una con su cédula (título, técnica y año, autor) y debajo un crédito enlazado a la fuente. Están en `public/images/archive/` y sus textos en `About.origin.archive`.
   - Se borraron "Cuatro rasgos" (`About.traits`) y las etiquetas `About.label`, `concept.label` y `origin.label`. **`About.facts` (Qué hacemos / Para quién / Cómo nos distinguimos) ya no se muestra, pero sus claves siguen**: el dueño decide si se borran.
   - El mínimo de los títulos de `Section` bajó a 34px, para que "The origin is the signature; the world is the reach." quepa en dos líneas a 390px.
+
+- **#20 Isotipo interactivo (falta el visto bueno del dueño):**
+  - `src/components/dreamcatcher.tsx`: cada parte es un botón (`aria-pressed`) con su cédula, y la descripción va debajo. Hover, foco o toque la activan. Hay una sola activa a la vez y queda encendida hasta que se elige otra.
+  - `HalftoneMark` acepta `regions` (markup SVG por zona, en el viewBox de la fuente) y `active`. Cada punto recuerda en qué zona cae. La zona activa se pinta en el acento y un 25% más grande, y el resto baja a 22% de opacidad. No se mueve nada, así que reduced-motion no cambia nada.
+  - Las zonas están en `ISOTIPO_REGIONS` (`lockup-markup.ts`), en el orden de `About.concept.parts`. Son formas holgadas sobre el dibujo existente; solo reciben zona los puntos que imprimen el logo.
+  - El estado no depende del color: la cédula activa lleva una flecha "→" y las demás descripciones se atenúan.
+  - El inspector da un WARN `mixed-font-headline` a 390px: lee cada parte (cédula + descripción) como un titular. Es un botón con su descripción, no un titular.
 
 #### Imágenes de archivo (Nosotros)
 
