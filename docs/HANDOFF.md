@@ -108,7 +108,8 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - Abre con el título (h1) y `About.lead` como statement en Imbue a 24–36px.
   - **El atrapasueños:** el isotipo grande en puntos halftone (`HalftoneMark` con `ISOTIPO_MARKUP`). Es el primer grupo del lockup ya generado, separado en `lockup-markup.ts`, sin redibujar nada. Al lado van las cuatro partes, cada una con su cédula y su texto. La interacción queda para el #20.
   - **Cómo trabajamos:** los 4 pasos de `Home.how` en un `ol` (`role="list"`), con el nombre enorme y la descripción al lado.
-  - **Origen:** cuatro imágenes de archivo de la Misión Geodésica, cada una con su cédula (título, técnica y año, autor) y debajo un crédito enlazado a la fuente. Están en `public/images/archive/` y sus textos en `About.origin.archive`.
+  - **Imágenes de archivo:** una por sección (Humboldt bajo el lead, el khipu en el atrapasueños, el Jacquard en Cómo trabajamos, la Meridiana y el plano de Quito en Origen), cada una con su cédula (título, técnica y año, autor) y debajo un crédito enlazado a la fuente. Están en `public/images/archive/` y sus textos en `About.archive`. Regla del dueño: nada de Wikipedia ni Wikimedia Commons; solo dominio público, CC0, CC BY o CC BY-SA de la institución que guarda la obra (Gallica cobra el uso comercial, así que tampoco).
+  - `About.origin.body` explica la Misión Geodésica de 1736 y la ata a la firma.
   - Se borraron "Cuatro rasgos" (`About.traits`) y las etiquetas `About.label`, `concept.label` y `origin.label`. **`About.facts` (Qué hacemos / Para quién / Cómo nos distinguimos) ya no se muestra, pero sus claves siguen**: el dueño decide si se borran.
   - El mínimo de los títulos de `Section` bajó a 34px, para que "The origin is the signature; the world is the reach." quepa en dos líneas a 390px.
 
@@ -123,10 +124,11 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
 
 | Archivo | Obra | Licencia | Fuente |
 |---|---|---|---|
-| `meridiana-quito-1752.jpg` | Jorge Juan y Antonio de Ulloa, *Carte de la Méridienne mesurée au Royaume de Quito*, en *Voyage historique de l'Amérique méridionale* (1752). Escaneo del Fondo Antiguo de la Biblioteca de la Universidad de Sevilla | CC BY 2.0 (crédito obligatorio) | https://commons.wikimedia.org/wiki/File:%22Pl._XXI_A-B-C%22_(19864899908).jpg |
-| `plano-quito-1736.jpg` | Academia de Ciencias de París, plano de Quito levantado en 1736 | Dominio público | https://commons.wikimedia.org/wiki/File:1736_French_Draft_of_the_Plan_of_Quito.jpg |
-| `bouguer-figure-de-la-terre-1749.jpg` | Pierre Bouguer, *La Figure de la Terre*, lámina sexta (1749) | Dominio público | https://commons.wikimedia.org/wiki/File:Illustrations_de_Le_figure_de_la_terre..._Voyage_au_P%C3%A9rou._-_(Non_identifi%C3%A9)_;_Pierre_Bouguer_(aut._du_texte)_-_btv1b20000441_(8_of_9).jpg |
-| `viaje-la-condamine-1749.jpg` | Jean-Baptiste Bourguignon d'Anville, *Carte des routes de M. de La Condamine* (1749) | Dominio público | https://commons.wikimedia.org/wiki/File:Voyage_aller_et_retour_de_La_Condamine_1735_1744.jpg |
+| `humboldt-tableau-physique-1807.jpg` | Alexander von Humboldt y Aimé Bonpland, *Tableau physique des Andes et pays voisins*, grabado coloreado a mano (1807). Copia del Missouri Botanical Garden | Dominio público | https://www.biodiversitylibrary.org/item/37872 |
+| `khipu-inca-cleveland.jpg` | Khipu inca, cuerdas de algodón y lana, Perú, 1400–1532 (1940.469) | CC0 | https://www.clevelandart.org/art/1940.469 |
+| `telar-jacquard-1867.jpg` | Pegard según L. Guiguet, mecanismo Jacquard de frente y de espaldas, en *Études sur l'Exposition* (E. Lacroix, h. 1867; la fecha es inferida, Wellcome no la da) | Public Domain Mark | https://wellcomecollection.org/works/nbxw869a |
+| `meridiana-quito-1748.jpg` | Jorge Juan y Antonio de Ulloa, *Carta de la Meridiana medida en el Reyno de Quito*, en *Relación histórica del viaje a la América Meridional*, vol. 2 (1748). Escaneo de la Biblioteca de la Universidad de Sevilla | CC0 | https://archive.org/details/BUSA313_203 |
+| `plano-quito-1748.jpg` | Jorge Juan y Antonio de Ulloa, *Plano de la Ciudad de San Francisco del Quito*, lámina XII, vol. 1 (1748). Reemplaza al plano de 1736, que fuera de Wikimedia solo está en la British Library (de pago) | CC0 | https://archive.org/details/BUSA313_202 |
 
 ### Lo que hay en la home (de arriba a abajo)
 
