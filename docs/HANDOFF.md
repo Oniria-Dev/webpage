@@ -76,6 +76,11 @@ dependencias nativas. Se trabaja bloque por bloque y el dueño da el visto bueno
   - El h1 va en Imbue 700 abajo a la izquierda, sobre el agua y con el margen del logo, a `min(9vw, 14cqh)`; el tope por altura evita que toque el barco en pantallas anchas y bajas. En el móvil sube por encima del toggle.
   - Se agregó un degradado oscuro abajo, como el de arriba.
   - `src/components/cedula.tsx` es la cédula roja compartida: una línea (`children`) o tres (`name` en negrita, `medium`, `origin`). Blanco sobre `#ED1C24` da 4.4:1, así que el texto va a 24px, o a 18.5px si es negrita. El hero ya la usa.
+- **#14 Sala de productos (hecho):**
+  - `src/components/product-room.tsx` muestra cada producto a sangre y lo enlaza a su ficha. La cédula de tres líneas sube 32px sobre el borde de abajo de la imagen.
+  - El medio de la cédula reutiliza la categoría del producto, más el año (`year` en `src/lib/products.ts`, 2026). El origen es "Quito, Ecuador".
+  - Oniric, que no tiene capturas, muestra una portada tipográfica: el nombre en Imbue enorme sobre negro, con la bolita roja.
+  - La sala reemplaza a la rueda en la home y a las tarjetas en `/products`. `ProductsWheel` y `WorksWheel` siguen en el repo, sin usar; `ProductCard` se borró.
 - **#13 Tipografía (hecho):** Imbue + Inter Tight (ver "Piezas técnicas reutilizables"). Los títulos de Filosofía pasan a Imbue 700.
 
 ### Lo que hay en la home (de arriba a abajo)

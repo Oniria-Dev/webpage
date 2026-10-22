@@ -1,7 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { Link } from "../i18n/navigation";
 import type { Product } from "../lib/products";
 
 /* Brand resource: guide lines, the heavier 0° line, and nodes joined by thin lines. */
@@ -45,22 +42,5 @@ export function ProductVisual({ product, alt, priority }: { product: Product; al
       sizes="(min-width: 1024px) 560px, 100vw"
       className="h-auto w-full rounded-lg border border-border"
     />
-  );
-}
-
-export function ProductCard({ product }: { product: Product }) {
-  const t = useTranslations("Products");
-  const name = t(`items.${product.slug}.name`);
-  return (
-    <Link href={`/products/${product.slug}`} className="group block transition-opacity active:opacity-70">
-      <ProductVisual product={product} alt={name} />
-      <p className="mono-label mt-5 text-muted-foreground">{t(`items.${product.slug}.category`)}</p>
-      <h3 className="mt-1 text-2xl">{name}</h3>
-      <p className="mt-2 max-w-[48ch] text-muted-foreground">{t(`items.${product.slug}.tagline`)}</p>
-      <p className="mt-4 flex items-center gap-1.5 text-sm font-medium">
-        {t("view")}
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-      </p>
-    </Link>
   );
 }

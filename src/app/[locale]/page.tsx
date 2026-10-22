@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import heroPhoto from "@/public/images/crucita-hero.webp";
 import { ScrambleTitle } from "@/src/components/scramble-title";
-import { ProductsWheel } from "@/src/components/products-wheel";
+import { ProductRoom } from "@/src/components/product-room";
 import { Cedula } from "@/src/components/cedula";
 
 
@@ -27,6 +27,7 @@ export async function generateMetadata({
 // The header and mode toggle live in the layout; the header sits over the hero.
 export default function LandingPage() {
   const t = useTranslations("Home.Hero");
+  const tp = useTranslations("Products");
 
   return (
     <main className="min-h-dvh bg-white">
@@ -82,7 +83,9 @@ export default function LandingPage() {
           className="font-editorial bg-[linear-gradient(to_bottom,#ED1C24_1lh,#0a0a0b_1lh)] bg-clip-text font-bold tracking-normal text-transparent"
         />
       </div>
-      <ProductsWheel />
+      <section aria-label={tp("label")}>
+        <ProductRoom />
+      </section>
     </main>
   );
 }

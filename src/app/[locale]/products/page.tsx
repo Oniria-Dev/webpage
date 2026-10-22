@@ -1,9 +1,8 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
-import { ProductCard } from "../../../components/product-card";
+import { ProductRoom } from "../../../components/product-room";
 import { em } from "../../../components/section";
-import { products } from "../../../lib/products";
 
 export async function generateMetadata({
   params
@@ -24,16 +23,12 @@ export default function ProductsPage() {
   const t = useTranslations("Products");
 
   return (
-    <main className="wrap py-16 md:py-24">
-      <p className="mono-label text-muted-foreground">{t("label")}</p>
-      <h1 className="mt-4 max-w-[16ch] text-5xl md:text-7xl">{t.rich("title", em)}</h1>
-      <p className="mt-6 max-w-[60ch] text-lg text-muted-foreground">{t("intro")}</p>
-
-      <div className="mt-16 grid gap-x-12 gap-y-16 md:grid-cols-2">
-        {products.map((product) => (
-          <ProductCard key={product.slug} product={product} />
-        ))}
+    <main className="pb-16 md:pb-24">
+      <div className="px-[calc(clamp(4px,1.5vw,16px)+24px)] pt-16 pb-[clamp(48px,6vw,96px)] md:pt-24">
+        <h1 className="font-editorial max-w-[18ch] text-[clamp(40px,6.4vw,112px)] leading-[0.98] font-bold tracking-normal">{t.rich("title", em)}</h1>
+        <p className="mt-6 max-w-[52ch] text-[clamp(18px,1.5vw,22px)] leading-snug">{t("intro")}</p>
       </div>
+      <ProductRoom />
     </main>
   );
 }
